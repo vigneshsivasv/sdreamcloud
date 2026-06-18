@@ -31,7 +31,6 @@ export default function HeroSection() {
 
         <div className="container-lux hero-content">
             <p className="eyebrow" style={{ marginBottom: '1.5rem' }}>
-              <span style={{ color: '#52525b', marginRight: '0.75rem' }}>{hero.sectionNumber}</span>
               {hero.sectionLabel}
             </p>
 
@@ -61,13 +60,13 @@ export default function HeroSection() {
                       fontFamily: 'var(--font-display), system-ui, sans-serif',
                       fontSize: 'clamp(1.25rem, 4vw, 2.5rem)',
                       fontWeight: 700,
-                      color: '#fff',
+                      color: 'var(--accent)',
                       marginBottom: '0.25rem',
                     }}
                   >
                     <CountUp value={stat.value} />
                   </dt>
-                  <dd className="hero-stat-label" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#eeeeee', margin: 0 }}>
+                  <dd className="hero-stat-label" style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--muted)', margin: 0 }}>
                     {stat.label}
                   </dd>
                 </div>

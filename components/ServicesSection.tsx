@@ -43,28 +43,19 @@ const icons: Record<string, JSX.Element> = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" aria-labelledby="services-heading" className="section-pad" style={{ background: '#09090b', borderTop: '1px solid var(--border)' }}>
+    <section id="services" aria-labelledby="services-heading" className="section-pad section-border-top">
       <div className="container-lux">
         <FadeIn>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '4rem' }}>
-            <div>
-              <p className="eyebrow" style={{ marginBottom: '1rem' }}>
-                <span style={{ color: '#52525b', marginRight: '0.75rem' }}>{services.sectionNumber}</span>
-                {services.sectionLabel}
-              </p>
-              <h2 id="services-heading" className="section-title" style={{ marginBottom: '1rem' }}>
-                {services.titleMain}
-                <br />
-                <em className="section-title-em">{services.titleSub}</em>
-              </h2>
-              <p style={{ color: '#a1a1aa', maxWidth: '36rem', lineHeight: 1.7 }}>{services.description}</p>
-            </div>
-            <a href={services.btnLink} className="btn-ghost">
-              {services.btnText}
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+          <div style={{ marginBottom: '4rem' }}>
+            <p className="eyebrow" style={{ marginBottom: '1rem' }}>
+              {services.sectionLabel}
+            </p>
+            <h2 id="services-heading" className="section-title" style={{ marginBottom: '1rem' }}>
+              {services.titleMain}
+              <br />
+              <em className="section-title-em">{services.titleSub}</em>
+            </h2>
+            <p className="text-secondary" style={{ maxWidth: '36rem', lineHeight: 1.7 }}>{services.description}</p>
           </div>
         </FadeIn>
 
@@ -72,16 +63,16 @@ export default function ServicesSection() {
           {services.services.map((service) => (
             <FadeIn key={service.slug} as="li" variants={fadeInUp}>
               <article className="lx-card" style={{ padding: '2rem', height: '100%' }}>
-                <div style={{ width: '56px', height: '56px', background: 'rgba(244,63,94,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem', color: 'var(--accent)' }}>
+                <div className="icon-wrap">
                   {icons[service.title] ?? icons['Brand Strategy']}
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-display), system-ui, sans-serif', fontSize: '1.25rem', fontWeight: 700, color: '#fff', margin: '0 0 0.75rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-display), system-ui, sans-serif', fontSize: '1.25rem', fontWeight: 700, color: 'var(--heading)', margin: '0 0 0.75rem' }}>
                   <Link href={getServiceHref(service.slug)} className="link-accent">{service.title}</Link>
                 </h3>
-                <p style={{ color: '#eeeeee', lineHeight: 1.7, margin: '0 0 1.5rem', fontSize: '0.9rem' }}>
+                <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, margin: '0 0 1.5rem', fontSize: '0.9rem' }}>
                   {service.description}
                 </p>
-                <Link href={getServiceHref(service.slug)} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', color: 'var(--accent)', fontSize: '0.8rem', fontWeight: 600 }}>
+                <Link href={getServiceHref(service.slug)} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', color: 'var(--accent)', fontSize: '0.8rem', fontWeight: 500 }}>
                   Learn more
                   <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

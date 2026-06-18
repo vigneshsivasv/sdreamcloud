@@ -5,15 +5,15 @@ import CountUp from '@/components/ui/CountUp';
 import { slideInLeft, slideInRight } from '@/lib/animations';
 
 const aboutStats = [
-  { value: '8+', label: 'Years Experience' },
-  { value: '50+', label: 'Projects Completed' },
-  { value: '300%', label: 'Average Growth' },
+  { value: '5+', label: 'Years Experience' },
+  { value: '100%', label: 'Dedicated Partnership' },
+  { value: '48hr', label: 'Strategy Delivery' },
   { value: '24/7', label: 'Support Available' },
 ];
 
 export default function AboutSection() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="section-pad" style={{ background: '#09090b' }}>
+    <section id="about" aria-labelledby="about-heading" className="section-pad section-bg-alt">
       <div className="container-lux">
         <div className="about-grid">
           <FadeIn variants={slideInLeft}>
@@ -22,17 +22,17 @@ export default function AboutSection() {
               <br />
               <em className="section-title-em">Sdreamclouds</em>
             </h2>
-            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', color: '#a1a1aa', lineHeight: 1.7, marginBottom: '2rem', maxWidth: '36rem' }}>
-              We&apos;re a team of digital marketing experts passionate about transforming ambitious brands into market leaders through data-driven strategies and creative excellence.
+            <p className="text-secondary" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', lineHeight: 1.7, marginBottom: '2rem', maxWidth: '36rem' }}>
+              Sdreamclouds is a digital marketing agency focused on search engine optimization, paid advertising, and conversion-driven web experiences. We help brands get found on Google, win on Facebook, and convert traffic into revenue.
             </p>
 
             <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '2.5rem' }}>
               {aboutStats.map((item) => (
                 <div key={item.label}>
-                  <dt style={{ fontFamily: 'var(--font-display), system-ui, sans-serif', fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: '#fff', marginBottom: '0.25rem' }}>
+                  <dt style={{ fontFamily: 'var(--font-display), system-ui, sans-serif', fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 700, color: 'var(--heading)', marginBottom: '0.25rem' }}>
                     <CountUp value={item.value} />
                   </dt>
-                  <dd style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: '#eeeeee', margin: 0 }}>
+                  <dd style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--muted)', margin: 0 }}>
                     {item.label}
                   </dd>
                 </div>
@@ -51,7 +51,7 @@ export default function AboutSection() {
             <figure style={{ margin: 0, overflow: 'hidden' }}>
               <Image
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop&q=80"
-                alt="Sdreamclouds team collaborating in a creative workspace on digital marketing strategy"
+                alt="Sdreamclouds digital marketing team collaborating on SEO and advertising strategy"
                 width={700}
                 height={500}
                 style={{ width: '100%', height: 'auto', display: 'block' }}

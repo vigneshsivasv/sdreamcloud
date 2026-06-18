@@ -14,13 +14,11 @@ export default function FaqSection() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="section-pad"
-      style={{ background: '#09090b', borderTop: '1px solid var(--border)' }}
+      className="section-pad section-border-top"
     >
       <div className="container-lux">
         <FadeIn className="section-header-block">
           <p className="eyebrow" style={{ marginBottom: '1rem' }}>
-            <span style={{ color: '#52525b', marginRight: '0.75rem' }}>{faq.sectionNumber}</span>
             {faq.sectionLabel}
           </p>
           <h2
@@ -70,7 +68,7 @@ export default function FaqSection() {
                     className={`faq-panel ${isOpen ? 'faq-panel-open' : ''}`}
                     style={{ margin: 0 }}
                   >
-                    <p style={{ color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontSize: '0.95rem' }}>
+                    <p className="text-secondary" style={{ lineHeight: 1.7, margin: 0, fontSize: '0.95rem' }}>
                       {item.answer}
                     </p>
                   </dd>

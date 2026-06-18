@@ -47,7 +47,7 @@ export default function HomePage() {
       <ServicesSection />
       <StatsSection />
       <ProcessSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <FaqSection />
     </PageShell>
   );

@@ -6,12 +6,11 @@ const { stats } = siteData;
 
 export default function StatsSection() {
   return (
-    <section aria-labelledby="stats-heading" className="section-pad" style={{ borderTop: '1px solid var(--border)', background: '#09090b' }}>
+    <section aria-labelledby="stats-heading" className="section-pad section-border-top section-bg-alt">
       <div className="container-lux">
         <FadeIn>
           <div style={{ maxWidth: '48rem', marginBottom: '4rem' }}>
             <p className="eyebrow" style={{ marginBottom: '1rem' }}>
-              <span style={{ color: '#52525b', marginRight: '0.75rem' }}>{stats.sectionNumber}</span>
               {stats.sectionLabel}
             </p>
             <h2 id="stats-heading" className="section-title">
@@ -40,16 +39,16 @@ export default function StatsSection() {
                     fontWeight: 900,
                     letterSpacing: '-0.04em',
                     lineHeight: 1,
-                    color: '#fff',
+                    color: 'var(--heading)',
                     marginBottom: '1.5rem',
                   }}
                 >
                   <CountUp value={stat.value} duration={2200} />
                 </p>
-                <p style={{ fontFamily: 'var(--font-display), system-ui, sans-serif', fontSize: '1rem', fontWeight: 700, color: '#e4e4e7', marginBottom: '0.25rem' }}>
+                <p style={{ fontFamily: 'var(--font-display), system-ui, sans-serif', fontSize: '1rem', fontWeight: 700, color: 'var(--heading)', marginBottom: '0.25rem' }}>
                   {stat.label}
                 </p>
-                <p style={{ color: '#52525b', fontSize: '0.85rem', margin: 0 }}>{stat.note}</p>
+                <p style={{ color: 'var(--muted)', fontSize: '0.85rem', margin: 0 }}>{stat.note}</p>
               </div>
             </FadeIn>
           ))}

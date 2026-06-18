@@ -1,139 +1,128 @@
 export const siteData = {
   hero: {
-    sectionNumber: '01',
-    sectionLabel: 'We Are Sdreamclouds',
-    titleMain: 'We build brands',
-    titleSub: 'that actually grow.',
+    sectionLabel: 'Sdreamclouds Digital Agency',
+    titleMain: 'Grow visibility.',
+    titleSub: 'Win customers online.',
     description:
-      'A team of digital marketing experts passionate about transforming ambitious brands into market leaders through data-driven strategies and creative excellence.',
-    btn1Text: 'Start a project',
+      'Sdreamclouds helps ambitious businesses rank higher on Google, run profitable Facebook and Google Ads campaigns, and turn website traffic into qualified leads through proven SEO and digital marketing strategies.',
+    btn1Text: 'Get a free strategy call',
     btn1Link: '/contact',
-    btn2Text: 'See our work',
+    btn2Text: 'Explore our services',
     btn2Link: '/#services',
     stats: [
-      { value: '8+', label: 'Years Experience' },
-      { value: '50+', label: 'Projects Completed' },
-      { value: '300%', label: 'Average Growth' },
+      { value: '5+', label: 'Years in Digital Marketing' },
+      { value: '100%', label: 'Client-Focused Approach' },
+      { value: '48hr', label: 'Strategy Turnaround' },
     ],
     marqueeItems: [
-      'Brand Strategy',
-      'SEO & Growth',
-      'Paid Media',
-      'Content Creation',
+      'SEO Services',
+      'Google Ads',
+      'Facebook Advertising',
+      'Content Marketing',
       'Web Design',
-      'Analytics',
-      'Social Media',
-      'Email Marketing',
+      'Conversion Optimization',
+      'Social Media Marketing',
+      'Local SEO',
     ],
   },
 
   services: {
-    sectionNumber: '02',
-    sectionLabel: 'What We Do',
-    titleMain: 'Services that',
-    titleSub: 'move the needle.',
+    sectionLabel: 'Digital Marketing Services',
+    titleMain: 'Marketing channels',
+    titleSub: 'built for measurable ROI.',
     description:
-      'From strategy to execution, we cover every touchpoint of the digital journey — built around outcomes, not vanity metrics.',
-    btnText: 'All services',
-    btnLink: '#services',
+      'From search engine optimization and paid social advertising to conversion-focused web design — every Sdreamclouds service is engineered to attract the right audience and drive revenue, not vanity metrics.',
     services: [
       {
         slug: 'seo-organic-growth',
         title: 'SEO & Organic Growth',
         description:
-          'Technical SEO, content architecture, and authority building that compound over time. We engineer sustainable rankings, not quick wins.',
-        iconColor: 'rose',
+          'Rank on page one with technical SEO audits, keyword research, content clusters, and authority link building that compounds month after month.',
+        iconColor: 'blue',
       },
       {
         slug: 'paid-media',
-        title: 'Paid Media',
+        title: 'Paid Media & PPC',
         description:
-          'Google, Meta, LinkedIn — we build and optimise full-funnel campaigns that convert at scale without burning budget.',
-        iconColor: 'rose',
+          'Scale profitably on Google Ads, Facebook, Instagram, and LinkedIn with full-funnel campaign structures, audience targeting, and ROAS-focused optimization.',
+        iconColor: 'blue',
       },
       {
         slug: 'brand-strategy',
         title: 'Brand Strategy',
         description:
-          'Positioning, messaging, and visual identity systems that give your brand a clear place in the market and a voice people remember.',
-        iconColor: 'rose',
+          'Define a clear market position, messaging framework, and visual identity that makes your brand memorable and trusted by your ideal customers.',
+        iconColor: 'blue',
       },
       {
         slug: 'content-creation',
-        title: 'Content Creation',
+        title: 'Content Marketing',
         description:
-          'Long-form editorial, video scripts, and social content engineered to educate, engage, and convert your ideal audience.',
-        iconColor: 'rose',
+          'Publish SEO-optimized blogs, landing page copy, video scripts, and social content that educates prospects and moves them closer to purchase.',
+        iconColor: 'blue',
       },
       {
         slug: 'web-design-dev',
-        title: 'Web Design & Dev',
+        title: 'Web Design & Development',
         description:
-          'Performance-first websites and landing pages designed to convert. Every pixel earns its place.',
-        iconColor: 'rose',
+          'Launch fast, mobile-responsive websites and landing pages with clean code, Core Web Vitals optimization, and conversion paths that turn visitors into leads.',
+        iconColor: 'blue',
       },
       {
         slug: 'analytics-cro',
         title: 'Analytics & CRO',
         description:
-          'GA4 setups, custom dashboards, heatmap analysis, and A/B testing that turn data into revenue.',
-        iconColor: 'rose',
+          'Track what matters with GA4 setup, custom dashboards, heatmaps, and A/B testing that uncover friction points and unlock higher conversion rates.',
+        iconColor: 'blue',
       },
     ],
   },
 
   stats: {
-    sectionNumber: '03',
-    sectionLabel: 'By the Numbers',
-    titleMain: 'Results that',
-    titleSub: 'speak for themselves.',
+    sectionLabel: 'The Sdreamclouds Standard',
+    titleMain: 'Premium attention.',
+    titleSub: 'Measurable results.',
     stats: [
-      { value: '50+', label: 'Brands Grown', note: 'Across 12 industries' },
-      { value: '300%', label: 'Avg. Traffic Increase', note: 'Within the first 6 months' },
-      { value: '8+', label: 'Years in Market', note: 'Since 2016' },
-      { value: '24/7', label: 'Support Available', note: 'Always on, always responsive' },
+      { value: '5+', label: 'Years of Experience', note: 'In SEO, paid media, and conversion strategy' },
+      { value: '100%', label: 'Client-Focused Delivery', note: 'Direct strategist access on every engagement' },
+      { value: '48hr', label: 'Strategy Turnaround', note: 'Audit insights and roadmap within two business days' },
+      { value: '24/7', label: 'Responsive Support', note: 'Clear communication across every time zone' },
     ],
   },
 
   process: {
-    sectionNumber: '04',
-    sectionLabel: 'How We Work',
-    titleMain: 'A process built for',
-    titleSub: 'results.',
+    sectionLabel: 'Our Approach',
+    titleMain: 'A proven framework for',
+    titleSub: 'sustainable growth.',
     steps: [
       {
-        number: '01',
-        title: 'Discovery',
+        title: 'Audit & Discovery',
         description:
-          'We start by understanding your business model, market position, competitors, and growth objectives. No assumptions — just deep listening and sharp questions.',
+          'We analyze your website, competitors, ad accounts, and analytics data to uncover gaps in SEO, paid media, and conversion paths before recommending anything.',
       },
       {
-        number: '02',
-        title: 'Strategy',
+        title: 'Strategy & Roadmap',
         description:
-          "We design a bespoke roadmap with clear OKRs, channel mix, budget allocation, and 90-day milestones. Strategy that's measurable from day one.",
+          'You receive a tailored digital marketing plan with keyword targets, channel mix, budget allocation, and 90-day milestones tied to revenue goals.',
       },
       {
-        number: '03',
-        title: 'Execution',
+        title: 'Execute & Launch',
         description:
-          'Our specialists execute across every channel simultaneously — content, paid, SEO, and design — with weekly transparent reporting.',
+          'Our specialists deploy SEO fixes, ad campaigns, content, and landing pages simultaneously — with weekly progress reports and transparent communication.',
       },
       {
-        number: '04',
-        title: 'Optimise',
+        title: 'Optimize & Scale',
         description:
-          "We run continuous experiments, iterate on what's working, and double down on the highest-leverage activities. Growth is a loop, not a launch.",
+          'We continuously test headlines, audiences, and page layouts, doubling down on what converts and cutting spend on what does not.',
       },
     ],
   },
 
   portfolio: {
-    sectionNumber: '05',
-    sectionLabel: 'Selected Work',
-    titleMain: "Projects we're proud of.",
-    buttonText: 'All case studies',
-    buttonLink: '#work',
+    sectionLabel: 'Client Results',
+    titleMain: 'Campaigns that delivered.',
+    buttonText: 'Start your project',
+    buttonLink: '/contact',
     projects: [
       {
         title: 'Kairos Bank Rebrand',
@@ -165,79 +154,79 @@ export const siteData = {
   testimonials: [
     {
       quote:
-        'Sdreamclouds rebuilt our entire growth stack in 90 days. We 3× our organic pipeline and finally understood our customers.',
+        'Sdreamclouds rebuilt our SEO and Google Ads foundation with clarity and precision. We saw stronger rankings, cleaner tracking, and a noticeably sharper lead pipeline within the first month.',
       author: 'Elena M.',
       role: 'VP Marketing, Kairos Bank',
     },
     {
       quote:
-        "The strategy they delivered was unlike anything we'd seen from an agency. It was specific, measurable, and actually worked.",
+        'Their Facebook advertising strategy was the most detailed we have ever received from an agency — specific audiences, creative angles, and clear ROAS targets.',
       author: 'James R.',
       role: 'Founder, Meridian',
     },
     {
       quote:
-        "Within the first month, our ad spend efficiency jumped by 60%. These people know exactly what they're doing.",
+        'We went from zero search visibility to ranking on page one for our core keywords. The content marketing plan alone was worth the investment.',
       author: 'Priya S.',
       role: 'CMO, Nova SaaS',
     },
   ],
 
   faq: {
-    sectionNumber: '07',
-    sectionLabel: 'FAQ',
-    titleMain: 'Questions we',
-    titleSub: 'hear often.',
+    sectionLabel: 'Frequently Asked Questions',
+    titleMain: 'WordPress, web dev',
+    titleSub: 'and SEO explained.',
     items: [
       {
-        question: 'What services does Sdreamclouds offer?',
+        question: 'Do you build and customize WordPress websites for businesses?',
         answer:
-          'We offer SEO and organic growth, paid media management, brand strategy, content creation, web design and development, and analytics with conversion rate optimization — all built around measurable business outcomes.',
+          'Yes. Sdreamclouds designs and develops custom WordPress sites with clean theme architecture, secure plugins, mobile-responsive layouts, and admin-friendly editing. We handle setup, staging, launch, and post-launch support so your team can update content without breaking performance or SEO.',
       },
       {
-        question: 'How long before we see results from SEO?',
+        question: 'What does your website development process include?',
         answer:
-          'Most clients see meaningful traffic improvements within 3–6 months. SEO compounds over time — our focus is on sustainable rankings through technical foundations, content architecture, and authority building.',
+          'Every build starts with a sitemap and wireframe review, followed by UI design, front-end development, CMS configuration, form and analytics integration, cross-browser QA, and a structured launch checklist. We deliver fast, accessible websites with clear conversion paths — not generic templates.',
       },
       {
-        question: 'Do you work with startups or established brands?',
+        question: 'How do you improve PageSpeed and Core Web Vitals performance?',
         answer:
-          'Both. We partner with ambitious startups launching their first growth stack and established brands scaling what already works. Every engagement starts with a discovery phase tailored to your stage.',
+          'We audit render-blocking scripts, image formats, font loading, caching, and server response times. Then we compress assets, lazy-load media, minify CSS and JavaScript, configure CDN delivery, and optimize Largest Contentful Paint, Interaction to Next Paint, and Cumulative Layout Shift until your site meets Google performance benchmarks.',
       },
       {
-        question: 'What does your onboarding process look like?',
+        question: 'What on-page SEO do you implement during development?',
         answer:
-          'We begin with discovery — understanding your business, market, and goals. Then we deliver a bespoke strategy with clear OKRs and 90-day milestones, followed by simultaneous execution across channels with weekly transparent reporting.',
+          'We optimize title tags, meta descriptions, heading hierarchy, internal linking, image alt text, schema markup, canonical URLs, and XML sitemaps. Content blocks are structured around target keywords and search intent so each page is indexable, readable, and aligned with how Google evaluates relevance.',
+      },
+      {
+        question: 'Can you redesign or migrate a site without losing search rankings?',
+        answer:
+          'Yes. We map existing URLs, set up 301 redirects, preserve metadata and structured data, monitor Search Console after launch, and fix crawl errors quickly. Whether you are moving to WordPress or refreshing an outdated design, we protect organic visibility while improving speed, UX, and conversion rate.',
       },
     ],
   },
 
   footer: {
+    tagline: 'Digital marketing built for visibility, leads, and lasting growth.',
     copyright: 'Sdreamclouds. All rights reserved.',
     links: {
-      services: [
-        { label: 'SEO & Organic Growth', href: '/services/seo-organic-growth' },
-        { label: 'Paid Media', href: '/services/paid-media' },
-        { label: 'Brand Strategy', href: '/services/brand-strategy' },
-        { label: 'Content Creation', href: '/services/content-creation' },
-        { label: 'Web Design & Dev', href: '/services/web-design-dev' },
-        { label: 'Analytics & CRO', href: '/services/analytics-cro' },
-      ],
-      studio: [
+      explore: [
         { label: 'About', href: '/#about' },
+        { label: 'Services', href: '/#services' },
         { label: 'Process', href: '/#process' },
+        { label: 'FAQ', href: '/#faq' },
         { label: 'Contact', href: '/contact' },
       ],
-      social: [
-        { label: 'LinkedIn', href: 'https://linkedin.com/company/sdreamclouds' },
-        { label: 'Twitter / X', href: 'https://twitter.com/sdreamclouds' },
-        { label: 'Instagram', href: 'https://instagram.com/sdreamclouds' },
+      services: [
+        { label: 'SEO & Organic Growth', href: '/services/seo-organic-growth' },
+        { label: 'Web Design & Development', href: '/services/web-design-dev' },
+        { label: 'Paid Media & PPC', href: '/services/paid-media' },
+        { label: 'Analytics & CRO', href: '/services/analytics-cro' },
       ],
-    },
-    legal: {
-      privacy: 'mailto:sdreamclouds@gmail.com?subject=Privacy%20Policy%20Inquiry',
-      terms: 'mailto:sdreamclouds@gmail.com?subject=Terms%20Inquiry',
-      cookies: 'mailto:sdreamclouds@gmail.com?subject=Cookies%20Inquiry',
+      social: [
+        { label: 'LinkedIn', href: 'https://linkedin.com/company/sdreamclouds', network: 'linkedin' as const },
+        { label: 'X (Twitter)', href: 'https://twitter.com/sdreamclouds', network: 'twitter' as const },
+        { label: 'Instagram', href: 'https://instagram.com/sdreamclouds', network: 'instagram' as const },
+      ],
     },
   },
 };

@@ -29,8 +29,7 @@ export default function TestimonialsSection() {
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className="section-pad"
-      style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--border)' }}
+      className="section-pad section-bg-alt section-border-top"
     >
       <div className="container-lux">
         <FadeIn>
@@ -44,7 +43,7 @@ export default function TestimonialsSection() {
           role="region"
           aria-label="Testimonials slider"
           aria-live="polite"
-          style={{ border: '1px solid var(--border)', padding: 'clamp(1.5rem, 5vw, 4rem)', background: '#09090b' }}
+          style={{ border: '1px solid var(--border)', padding: 'clamp(1.5rem, 5vw, 4rem)', background: 'var(--bg)', boxShadow: '0 2px 12px rgba(0,0,0,0.04)' }}
         >
           <figure style={{ margin: 0, position: 'relative', minHeight: '200px' }}>
             <span aria-hidden="true" className="quote-decoration">&ldquo;</span>
@@ -75,10 +74,7 @@ export default function TestimonialsSection() {
             </AnimatePresence>
           </figure>
 
-          <div className="testimonial-controls">
-            <span className="testimonial-counter" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')} / {String(testimonials.length).padStart(2, '0')}
-            </span>
+          <div className="testimonial-controls testimonial-controls-end">
             <div className="testimonial-buttons">
               <button
                 type="button"

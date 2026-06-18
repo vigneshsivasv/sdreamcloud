@@ -10,7 +10,7 @@ type ServicePageContentProps = {
 export default function ServicePageContent({ service }: ServicePageContentProps) {
   return (
     <>
-      <section className="page-hero" style={{ background: '#09090b', borderBottom: '1px solid var(--border)' }}>
+      <section className="page-hero section-border-top">
         <div className="container-lux">
           <FadeIn>
             <nav aria-label="Breadcrumb" className="breadcrumb">
@@ -24,7 +24,7 @@ export default function ServicePageContent({ service }: ServicePageContentProps)
             <h1 className="section-title" style={{ marginBottom: '1.5rem', maxWidth: '48rem' }}>
               {service.title}
             </h1>
-            <p style={{ color: '#a1a1aa', fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', lineHeight: 1.7, maxWidth: '42rem', marginBottom: '2rem' }}>
+            <p className="text-secondary" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.125rem)', lineHeight: 1.7, maxWidth: '42rem', marginBottom: '2rem' }}>
               {service.description}
             </p>
             <Link href="/contact" className="btn-primary hover-lift">
@@ -37,7 +37,7 @@ export default function ServicePageContent({ service }: ServicePageContentProps)
         </div>
       </section>
 
-      <section className="section-pad" style={{ background: '#09090b' }}>
+      <section className="section-pad">
         <div className="container-lux">
           <div className="service-detail-grid">
             <FadeIn>
@@ -61,7 +61,7 @@ export default function ServicePageContent({ service }: ServicePageContentProps)
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <p style={{ color: '#eeeeee', lineHeight: 1.7, marginTop: '2rem' }}>
+              <p className="text-secondary" style={{ lineHeight: 1.7, marginTop: '2rem' }}>
                 {service.shortDescription}
               </p>
             </FadeIn>
@@ -69,14 +69,14 @@ export default function ServicePageContent({ service }: ServicePageContentProps)
         </div>
       </section>
 
-      <section className="section-pad" style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--border)' }}>
+      <section className="section-pad section-bg-alt section-border-top">
         <div className="container-lux">
           <FadeIn>
             <div className="service-cta-block">
               <h2 className="section-title" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', marginBottom: '1rem' }}>
                 Ready to get started?
               </h2>
-              <p style={{ color: '#a1a1aa', marginBottom: '2rem', maxWidth: '32rem' }}>
+              <p className="text-secondary" style={{ marginBottom: '2rem', maxWidth: '32rem' }}>
                 Tell us about your goals and we&apos;ll show you how {service.title.toLowerCase()} can drive measurable growth.
               </p>
               <Link href="/contact" className="btn-primary hover-lift">

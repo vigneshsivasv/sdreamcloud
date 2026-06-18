@@ -12,13 +12,12 @@ export default function PortfolioSection() {
   const rightProjects = projects.slice(1, 3);
 
   return (
-    <section id="work" aria-labelledby="work-heading" className="section-pad" style={{ borderTop: '1px solid var(--border)', background: '#09090b' }}>
+    <section id="work" aria-labelledby="work-heading" className="section-pad section-border-top">
       <div className="container-lux">
         <FadeIn>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1.5rem', marginBottom: '4rem' }}>
             <div>
               <p className="eyebrow" style={{ marginBottom: '1rem' }}>
-                <span style={{ color: '#52525b', marginRight: '0.75rem' }}>{portfolio.sectionNumber}</span>
                 {portfolio.sectionLabel}
               </p>
               <h2 id="work-heading" className="section-title" style={{ maxWidth: '36rem' }}>

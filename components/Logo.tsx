@@ -1,21 +1,20 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { siteConfig } from '@/lib/seo';
 
 type LogoProps = {
   priority?: boolean;
 };
 
-export default function Logo({ priority = false }: LogoProps) {
+export default function Logo({ priority: _priority = false }: LogoProps) {
   return (
-    <Link href="/" aria-label="Dream clouds home" className="site-logo-link">
-      <Image
-        src="/logo.png"
-        alt="Dream clouds"
-        width={300}
-        height={72}
-        priority={priority}
-        className="site-logo-img"
-      />
+    <Link href="/" aria-label={`${siteConfig.name} home`} className="site-logo-link">
+      <span className="site-logo-mark" aria-hidden="true">
+       
+      </span>
+      <span className="site-logo-text">
+        <span className="site-logo-brand">Sdream</span>
+        <span className="site-logo-accent">clouds</span>
+      </span>
     </Link>
   );
 }

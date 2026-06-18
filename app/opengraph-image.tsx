@@ -17,27 +17,28 @@ export default function OgImage() {
           flexDirection: 'column',
           justifyContent: 'center',
           padding: '80px',
-          background: 'linear-gradient(135deg, #09090b 0%, #18181b 50%, #09090b 100%)',
+          background: 'linear-gradient(135deg, #ffffff 0%, #f0f2f5 50%, #ffffff 100%)',
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '16px',
-            marginBottom: '40px',
-          }}
-        >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '40px' }}>
           <div
             style={{
-              width: '12px',
-              height: '12px',
+              width: '48px',
+              height: '48px',
               borderRadius: '50%',
-              background: '#f43f5e',
+              background: '#1877F2',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff',
+              fontSize: '24px',
+              fontWeight: 800,
             }}
-          />
-          <span style={{ color: '#eeeeee', fontSize: '20px', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+          >
+            S
+          </div>
+          <span style={{ color: '#505358', fontSize: '20px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
             Digital Marketing Agency
           </span>
         </div>
@@ -45,7 +46,7 @@ export default function OgImage() {
           style={{
             fontSize: '72px',
             fontWeight: 800,
-            color: '#fafafa',
+            color: '#1c1e21',
             lineHeight: 1.05,
             letterSpacing: '-0.04em',
             maxWidth: '900px',
@@ -56,13 +57,13 @@ export default function OgImage() {
         <div
           style={{
             fontSize: '28px',
-            color: '#a1a1aa',
+            color: '#3a3b3c',
             marginTop: '24px',
             maxWidth: '800px',
             lineHeight: 1.4,
           }}
         >
-          Transforming ambitious brands into market leaders
+          SEO, Google Ads & Facebook advertising for growing brands
         </div>
       </div>
     ),

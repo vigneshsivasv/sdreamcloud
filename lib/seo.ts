@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
 export const siteConfig = {
-  name: 'Dream clouds',
-  title: 'Dream clouds – Digital Marketing Agency',
+  name: 'Sdreamclouds',
+  title: 'Sdreamclouds | Digital Marketing & SEO Agency',
   description:
-    'Dream clouds is a premium digital marketing agency specialising in SEO, paid media, content strategy, and brand growth. We transform ambitious brands into market leaders.',
+    'Sdreamclouds is a results-driven digital marketing agency offering SEO services, Google Ads, Facebook advertising, content marketing, and conversion-focused web design for growing brands worldwide.',
   url: 'https://sdreamclouds.com',
   locale: 'en_US',
   language: 'en',
@@ -13,12 +13,19 @@ export const siteConfig = {
   keywords: [
     'digital marketing agency',
     'SEO services',
-    'paid media',
-    'content strategy',
-    'brand growth',
+    'search engine optimization',
+    'Google Ads management',
+    'Facebook advertising',
+    'Meta ads agency',
+    'content marketing strategy',
+    'conversion rate optimization',
     'web design agency',
-    'analytics and CRO',
-    'sdreamclouds',
+    'social media marketing',
+    'local SEO services',
+    'paid media advertising',
+    'brand strategy consulting',
+    'Sdreamclouds',
+    'S Dream Clouds',
   ],
   sameAs: [
     'https://twitter.com/sdreamclouds',
@@ -144,11 +151,12 @@ export function marketingAgencySchema() {
     areaServed: 'Worldwide',
     knowsAbout: [
       'Search Engine Optimization',
-      'Paid Media Advertising',
-      'Brand Strategy',
+      'Google Ads',
+      'Facebook Advertising',
       'Content Marketing',
       'Web Design',
       'Conversion Rate Optimization',
+      'Social Media Marketing',
     ],
   };
 }
@@ -170,6 +178,8 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${siteConfig.url}/#faq`,
+    url: `${siteConfig.url}/#faq`,
     mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
