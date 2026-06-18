@@ -7,9 +7,9 @@ export const siteData = {
     description:
       'A team of digital marketing experts passionate about transforming ambitious brands into market leaders through data-driven strategies and creative excellence.',
     btn1Text: 'Start a project',
-    btn1Link: '#contact',
+    btn1Link: '/contact',
     btn2Text: 'See our work',
-    btn2Link: '#work',
+    btn2Link: '/#services',
     stats: [
       { value: '8+', label: 'Years Experience' },
       { value: '50+', label: 'Projects Completed' },
@@ -38,36 +38,42 @@ export const siteData = {
     btnLink: '#services',
     services: [
       {
+        slug: 'seo-organic-growth',
         title: 'SEO & Organic Growth',
         description:
           'Technical SEO, content architecture, and authority building that compound over time. We engineer sustainable rankings, not quick wins.',
         iconColor: 'rose',
       },
       {
+        slug: 'paid-media',
         title: 'Paid Media',
         description:
           'Google, Meta, LinkedIn — we build and optimise full-funnel campaigns that convert at scale without burning budget.',
         iconColor: 'rose',
       },
       {
+        slug: 'brand-strategy',
         title: 'Brand Strategy',
         description:
           'Positioning, messaging, and visual identity systems that give your brand a clear place in the market and a voice people remember.',
         iconColor: 'rose',
       },
       {
+        slug: 'content-creation',
         title: 'Content Creation',
         description:
           'Long-form editorial, video scripts, and social content engineered to educate, engage, and convert your ideal audience.',
         iconColor: 'rose',
       },
       {
+        slug: 'web-design-dev',
         title: 'Web Design & Dev',
         description:
           'Performance-first websites and landing pages designed to convert. Every pixel earns its place.',
         iconColor: 'rose',
       },
       {
+        slug: 'analytics-cro',
         title: 'Analytics & CRO',
         description:
           'GA4 setups, custom dashboards, heatmap analysis, and A/B testing that turn data into revenue.',
@@ -135,7 +141,7 @@ export const siteData = {
         result: '+280% organic leads in 6 months',
         tags: 'Brand Strategy, SEO, Content',
         image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=600&fit=crop',
-        link: '#',
+        link: '/contact',
       },
       {
         title: 'Meridian E-commerce Growth',
@@ -143,7 +149,7 @@ export const siteData = {
         result: '3× ROAS on paid media',
         tags: 'Paid Media, CRO',
         image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-        link: '#',
+        link: '/contact',
       },
       {
         title: 'Nova SaaS Launch',
@@ -151,7 +157,7 @@ export const siteData = {
         result: '10K signups in 30 days',
         tags: 'Launch Strategy, SEO, Design',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-        link: '#',
+        link: '/contact',
       },
     ],
   },
@@ -177,35 +183,61 @@ export const siteData = {
     },
   ],
 
+  faq: {
+    sectionNumber: '07',
+    sectionLabel: 'FAQ',
+    titleMain: 'Questions we',
+    titleSub: 'hear often.',
+    items: [
+      {
+        question: 'What services does Sdreamclouds offer?',
+        answer:
+          'We offer SEO and organic growth, paid media management, brand strategy, content creation, web design and development, and analytics with conversion rate optimization — all built around measurable business outcomes.',
+      },
+      {
+        question: 'How long before we see results from SEO?',
+        answer:
+          'Most clients see meaningful traffic improvements within 3–6 months. SEO compounds over time — our focus is on sustainable rankings through technical foundations, content architecture, and authority building.',
+      },
+      {
+        question: 'Do you work with startups or established brands?',
+        answer:
+          'Both. We partner with ambitious startups launching their first growth stack and established brands scaling what already works. Every engagement starts with a discovery phase tailored to your stage.',
+      },
+      {
+        question: 'What does your onboarding process look like?',
+        answer:
+          'We begin with discovery — understanding your business, market, and goals. Then we deliver a bespoke strategy with clear OKRs and 90-day milestones, followed by simultaneous execution across channels with weekly transparent reporting.',
+      },
+    ],
+  },
+
   footer: {
     copyright: 'Sdreamclouds. All rights reserved.',
     links: {
       services: [
-        { label: 'SEO & Organic Growth', href: '#services' },
-        { label: 'Paid Media', href: '#services' },
-        { label: 'Brand Strategy', href: '#services' },
-        { label: 'Content Creation', href: '#services' },
-        { label: 'Web Design & Dev', href: '#services' },
-        { label: 'Analytics & CRO', href: '#services' },
+        { label: 'SEO & Organic Growth', href: '/services/seo-organic-growth' },
+        { label: 'Paid Media', href: '/services/paid-media' },
+        { label: 'Brand Strategy', href: '/services/brand-strategy' },
+        { label: 'Content Creation', href: '/services/content-creation' },
+        { label: 'Web Design & Dev', href: '/services/web-design-dev' },
+        { label: 'Analytics & CRO', href: '/services/analytics-cro' },
       ],
       studio: [
-        { label: 'About', href: '#about' },
-        { label: 'Work', href: '#work' },
-        { label: 'Process', href: '#process' },
-        { label: 'Insights', href: '#insights' },
-        { label: 'Contact', href: '#contact' },
+        { label: 'About', href: '/#about' },
+        { label: 'Process', href: '/#process' },
+        { label: 'Contact', href: '/contact' },
       ],
       social: [
-        { label: 'LinkedIn', href: '#' },
-        { label: 'Twitter / X', href: '#' },
-        { label: 'Instagram', href: '#' },
-        { label: 'YouTube', href: '#' },
+        { label: 'LinkedIn', href: 'https://linkedin.com/company/sdreamclouds' },
+        { label: 'Twitter / X', href: 'https://twitter.com/sdreamclouds' },
+        { label: 'Instagram', href: 'https://instagram.com/sdreamclouds' },
       ],
     },
     legal: {
-      privacy: '#',
-      terms: '#',
-      cookies: '#',
+      privacy: 'mailto:sdreamclouds@gmail.com?subject=Privacy%20Policy%20Inquiry',
+      terms: 'mailto:sdreamclouds@gmail.com?subject=Terms%20Inquiry',
+      cookies: 'mailto:sdreamclouds@gmail.com?subject=Cookies%20Inquiry',
     },
   },
 };

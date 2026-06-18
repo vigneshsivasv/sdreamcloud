@@ -1,4 +1,9 @@
+import Link from 'next/link';
 import { siteData } from '@/lib/data';
+import { getServiceHref } from '@/lib/services';
+import FadeIn from '@/components/ui/FadeIn';
+import StaggerChildren from '@/components/ui/StaggerChildren';
+import { fadeInUp } from '@/lib/animations';
 
 const { services } = siteData;
 
@@ -38,69 +43,54 @@ const icons: Record<string, JSX.Element> = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" aria-labelledby="services-heading" className="section-pad scroll-animation" style={{ background: '#09090b', borderTop: '1px solid var(--border)' }}>
+    <section id="services" aria-labelledby="services-heading" className="section-pad" style={{ background: '#09090b', borderTop: '1px solid var(--border)' }}>
       <div className="container-lux">
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '4rem' }}>
-          <div>
-            <p className="eyebrow" style={{ marginBottom: '1rem' }}>
-              <span style={{ color: '#52525b', marginRight: '0.75rem' }}>{services.sectionNumber}</span>
-              {services.sectionLabel}
-            </p>
-            <h2
-              id="services-heading"
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontWeight: 800,
-                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-                letterSpacing: '-0.04em',
-                lineHeight: 0.95,
-                color: '#fff',
-                margin: '0 0 1rem',
-              }}
-            >
-              {services.titleMain}<br />
-              <em style={{ fontWeight: 300, fontStyle: 'italic', color: '#71717a' }}>{services.titleSub}</em>
-            </h2>
-            <p style={{ color: '#a1a1aa', maxWidth: '36rem', lineHeight: 1.7 }}>{services.description}</p>
-          </div>
-          <a href={services.btnLink} className="btn-ghost">
-            {services.btnText}
-            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
-
-        <ul
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '1.5rem', listStyle: 'none', margin: 0, padding: 0 }}
-          aria-label="Our services"
-        >
-          <style>{`
-            @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-            @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr) !important; } }
-          `}</style>
-          <style>{`.services-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; list-style: none; margin: 0; padding: 0; }`}</style>
-
-          {services.services.map((service) => (
-            <li key={service.title} className="lx-card" style={{ padding: '2rem' }}>
-              <div style={{ width: '56px', height: '56px', background: 'rgba(244,63,94,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem', color: 'var(--accent)', transition: 'background 0.2s ease' }}>
-                {icons[service.title] || icons['Brand Strategy']}
-              </div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 700, color: '#fff', margin: '0 0 0.75rem' }}>
-                {service.title}
-              </h3>
-              <p style={{ color: '#71717a', lineHeight: 1.7, margin: '0 0 1.5rem', fontSize: '0.9rem' }}>
-                {service.description}
+        <FadeIn>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '4rem' }}>
+            <div>
+              <p className="eyebrow" style={{ marginBottom: '1rem' }}>
+                <span style={{ color: '#52525b', marginRight: '0.75rem' }}>{services.sectionNumber}</span>
+                {services.sectionLabel}
               </p>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', color: 'var(--accent)', fontSize: '0.8rem', fontWeight: 600 }}>
-                Learn more
-                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </li>
+              <h2 id="services-heading" className="section-title" style={{ marginBottom: '1rem' }}>
+                {services.titleMain}
+                <br />
+                <em className="section-title-em">{services.titleSub}</em>
+              </h2>
+              <p style={{ color: '#a1a1aa', maxWidth: '36rem', lineHeight: 1.7 }}>{services.description}</p>
+            </div>
+            <a href={services.btnLink} className="btn-ghost">
+              {services.btnText}
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </FadeIn>
+
+        <StaggerChildren as="ul" className="services-grid" aria-label="Our services">
+          {services.services.map((service) => (
+            <FadeIn key={service.slug} as="li" variants={fadeInUp}>
+              <article className="lx-card" style={{ padding: '2rem', height: '100%' }}>
+                <div style={{ width: '56px', height: '56px', background: 'rgba(244,63,94,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem', color: 'var(--accent)' }}>
+                  {icons[service.title] ?? icons['Brand Strategy']}
+                </div>
+                <h3 style={{ fontFamily: 'var(--font-display), system-ui, sans-serif', fontSize: '1.25rem', fontWeight: 700, color: '#fff', margin: '0 0 0.75rem' }}>
+                  <Link href={getServiceHref(service.slug)} className="link-accent">{service.title}</Link>
+                </h3>
+                <p style={{ color: '#eeeeee', lineHeight: 1.7, margin: '0 0 1.5rem', fontSize: '0.9rem' }}>
+                  {service.description}
+                </p>
+                <Link href={getServiceHref(service.slug)} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', color: 'var(--accent)', fontSize: '0.8rem', fontWeight: 600 }}>
+                  Learn more
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </article>
+            </FadeIn>
           ))}
-        </ul>
+        </StaggerChildren>
       </div>
     </section>
   );

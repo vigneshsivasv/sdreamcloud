@@ -1,13 +1,14 @@
 # Sdreamclouds – Next.js Digital Agency Site
 
-A production-ready Next.js 14 site converted from the WordPress theme, with full SEO, semantic HTML5, and structured data.
+A production-ready Next.js 14 site with full SEO, semantic HTML5, structured data, and Framer Motion animations.
 
 ## Tech Stack
 
 - **Next.js 14** (App Router)
 - **TypeScript**
+- **Framer Motion** – scroll reveal and section animations
+- **next/font** – Outfit (display) + Manrope (body)
 - **CSS custom properties** (no Tailwind dependency)
-- **Google Fonts** – Outfit (display) + Manrope (body)
 
 ## Quick Start
 
@@ -22,43 +23,48 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```
 app/
-  layout.tsx        # Root layout – global SEO metadata, fonts
-  page.tsx          # Home page – imports all sections + JSON-LD
-  globals.css       # Design tokens + utility classes
+  layout.tsx           # Root layout – global SEO metadata, fonts
+  page.tsx             # Home page – sections + JSON-LD
+  globals.css          # Design tokens + utility classes
+  opengraph-image.tsx  # Dynamic OG image generation
+  icon.tsx             # Dynamic favicon
+  robots.ts            # robots.txt
+  sitemap.ts           # sitemap.xml
 
 components/
-  Header.tsx        # Sticky nav with mobile hamburger
-  HeroSection.tsx   # Hero + marquee ticker
-  AboutSection.tsx  # About + stats grid
+  Header.tsx           # Sticky nav with mobile hamburger
+  HeroSection.tsx      # Hero + marquee ticker
+  AboutSection.tsx
   ServicesSection.tsx
   StatsSection.tsx
   ProcessSection.tsx
   PortfolioSection.tsx
   TestimonialsSection.tsx  # Auto-rotating slider (client)
-  InsightsSection.tsx      # Blog posts grid
+  FaqSection.tsx           # FAQ accordion with schema
   ContactSection.tsx       # Contact form (client)
   Footer.tsx
-  ScrollObserver.tsx       # IntersectionObserver for fade-in animations
+  JsonLd.tsx               # Structured data helper
+  ui/FadeIn.tsx            # Reusable scroll animation
+  ui/StaggerChildren.tsx   # Stagger animation wrapper
 
 lib/
-  data.ts           # All site content – edit this to customise copy
+  data.ts              # All site content
+  seo.ts               # Metadata + JSON-LD schema builders
+  animations.ts        # Framer Motion variants
 ```
 
 ## SEO Features
 
-- `<title>` + `<meta description>` via Next.js `Metadata` API
-- Open Graph & Twitter Card tags
-- `application/ld+json` structured data (`MarketingAgency` schema)
-- `<link rel="canonical">` 
-- Semantic HTML5 elements: `<header>`, `<main>`, `<section>`, `<article>`, `<nav>`, `<footer>`, `<address>`, `<figure>`, `<blockquote>`, `<time>`, `<dl>/<dt>/<dd>`, `<ol>/<ul>/<li>`
-- `aria-label`, `aria-labelledby`, `aria-expanded`, `role` attributes
-- `alt` text on all images
-- `<time datetime>` on blog dates
-- Next.js `Image` with `lazy` loading + `sizes`
+- Next.js Metadata API with Open Graph, Twitter Cards, canonical URLs, hreflang
+- JSON-LD: Organization, WebSite, MarketingAgency, BreadcrumbList, FAQPage
+- Dynamic OG image and favicon via file-based metadata
+- Semantic HTML5 with proper heading hierarchy (single H1)
+- ARIA labels, skip link, keyboard navigation, focus states
+- `next/image` with lazy loading and responsive `sizes`
 
 ## Customisation
 
-All copy, links, and content live in `lib/data.ts`. Edit that file to update the site without touching component code.
+All copy, links, and content live in `lib/data.ts`. SEO config lives in `lib/seo.ts`.
 
 ## Build for Production
 

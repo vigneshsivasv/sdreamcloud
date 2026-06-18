@@ -1,133 +1,98 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { siteData } from '@/lib/data';
+import FadeIn from '@/components/ui/FadeIn';
 
 const { testimonials } = siteData;
 
 export default function TestimonialsSection() {
   const [index, setIndex] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const startAuto = () => {
-    stopAuto();
-    if (testimonials.length < 2) return;
-    timerRef.current = setInterval(() => {
-      setIndex((i) => (i + 1) % testimonials.length);
-    }, 5000);
-  };
-  const stopAuto = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
-  };
+  const prefersReducedMotion = useReducedMotion();
+  const goTo = useCallback((next: number) => {
+    setIndex((next + testimonials.length) % testimonials.length);
+  }, []);
 
   useEffect(() => {
-    startAuto();
-    return stopAuto;
-  }, []);
+    if (testimonials.length < 2 || prefersReducedMotion) return;
+
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [prefersReducedMotion]);
 
   const current = testimonials[index];
 
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className="section-pad scroll-animation"
-      style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--border)', position: 'relative' }}
+      className="section-pad"
+      style={{ background: 'var(--bg-2)', borderTop: '1px solid var(--border)' }}
     >
       <div className="container-lux">
-        <div style={{ marginBottom: '3rem' }}>
-          <h2
-            id="testimonials-heading"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 800,
-              fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-              letterSpacing: '-0.03em',
-              lineHeight: 0.95,
-              color: '#fff',
-              margin: 0,
-              maxWidth: '48rem',
-            }}
-          >
+        <FadeIn>
+          <h2 id="testimonials-heading" className="section-title" style={{ marginBottom: '3rem', maxWidth: '48rem' }}>
             Words from the{' '}
-            <em style={{ fontWeight: 300, fontStyle: 'italic', color: '#71717a' }}>people we built for.</em>
+            <em className="section-title-em">people we built for.</em>
           </h2>
-        </div>
+        </FadeIn>
 
         <div
           role="region"
           aria-label="Testimonials slider"
-          style={{ border: '1px solid var(--border)', padding: 'clamp(2rem, 5vw, 4rem)', background: '#09090b', position: 'relative' }}
-          onMouseEnter={stopAuto}
-          onMouseLeave={startAuto}
+          aria-live="polite"
+          style={{ border: '1px solid var(--border)', padding: 'clamp(1.5rem, 5vw, 4rem)', background: '#09090b' }}
         >
-          <figure style={{ margin: 0, position: 'relative' }}>
-            {/* decorative quote mark */}
-            <span aria-hidden="true" style={{ position: 'absolute', top: '-1.5rem', left: '-0.5rem', fontSize: '8rem', fontFamily: 'Georgia,serif', color: 'rgba(244,63,94,0.12)', lineHeight: 1, userSelect: 'none' }}>"</span>
+          <figure style={{ margin: 0, position: 'relative', minHeight: '200px' }}>
+            <span aria-hidden="true" className="quote-decoration">&ldquo;</span>
 
-            <blockquote
-              cite={current.role}
-              style={{ margin: 0, position: 'relative', zIndex: 1 }}
-            >
-              <p
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(1.25rem, 3.5vw, 2.5rem)',
-                  fontWeight: 700,
-                  lineHeight: 1.2,
-                  letterSpacing: '-0.02em',
-                  color: '#fff',
-                  margin: '0 0 2.5rem',
-                }}
+            <AnimatePresence mode="wait">
+              <motion.blockquote
+                key={index}
+                cite={current.role}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={prefersReducedMotion ? undefined : { opacity: 0, y: -12 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                style={{ margin: 0, position: 'relative', zIndex: 1 }}
               >
-                "{current.quote}"
-              </p>
-              <footer style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <span
-                  aria-hidden="true"
-                  style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '50%',
-                    background: 'var(--accent)',
-                    display: 'grid',
-                    placeItems: 'center',
-                    color: '#fff',
-                    fontWeight: 700,
-                    fontSize: '1.125rem',
-                    flexShrink: 0,
-                  }}
-                >
-                  {current.author.charAt(0).toUpperCase()}
-                </span>
-                <div>
-                  <cite style={{ fontStyle: 'normal', fontWeight: 600, color: '#fff', display: 'block' }}>
-                    {current.author}
-                  </cite>
-                  <span style={{ fontSize: '0.85rem', color: '#71717a' }}>{current.role}</span>
-                </div>
-              </footer>
-            </blockquote>
+                <p className="testimonial-quote">
+                  &ldquo;{current.quote}&rdquo;
+                </p>
+                <footer className="testimonial-author">
+                  <span aria-hidden="true" className="testimonial-avatar">
+                    {current.author.charAt(0).toUpperCase()}
+                  </span>
+                  <div>
+                    <cite className="testimonial-name">{current.author}</cite>
+                    <span className="testimonial-role">{current.role}</span>
+                  </div>
+                </footer>
+              </motion.blockquote>
+            </AnimatePresence>
           </figure>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
-            <span style={{ fontSize: '0.75rem', fontFamily: 'monospace', color: '#52525b' }}>
+          <div className="testimonial-controls">
+            <span className="testimonial-counter" aria-hidden="true">
               {String(index + 1).padStart(2, '0')} / {String(testimonials.length).padStart(2, '0')}
             </span>
-            <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <div className="testimonial-buttons">
               <button
-                onClick={() => { setIndex((i) => (i - 1 + testimonials.length) % testimonials.length); startAuto(); }}
+                type="button"
+                onClick={() => goTo(index - 1)}
                 aria-label="Previous testimonial"
-                style={{ width: '44px', height: '44px', border: '1px solid var(--border)', background: 'none', color: '#fff', cursor: 'pointer', display: 'grid', placeItems: 'center', transition: 'border-color 0.2s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#fff')}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
+                className="testimonial-btn"
               >
                 ←
               </button>
               <button
-                onClick={() => { setIndex((i) => (i + 1) % testimonials.length); startAuto(); }}
+                type="button"
+                onClick={() => goTo(index + 1)}
                 aria-label="Next testimonial"
-                style={{ width: '44px', height: '44px', border: '1px solid var(--border)', background: 'none', color: '#fff', cursor: 'pointer', display: 'grid', placeItems: 'center', transition: 'border-color 0.2s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#fff')}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
+                className="testimonial-btn"
               >
                 →
               </button>

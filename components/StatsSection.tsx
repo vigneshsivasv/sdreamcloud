@@ -1,4 +1,6 @@
 import { siteData } from '@/lib/data';
+import FadeIn from '@/components/ui/FadeIn';
+import CountUp from '@/components/ui/CountUp';
 
 const { stats } = siteData;
 
@@ -6,46 +8,35 @@ export default function StatsSection() {
   return (
     <section aria-labelledby="stats-heading" className="section-pad" style={{ borderTop: '1px solid var(--border)', background: '#09090b' }}>
       <div className="container-lux">
-        <div style={{ maxWidth: '48rem', marginBottom: '4rem' }}>
-          <h2
-            id="stats-heading"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 800,
-              fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-              letterSpacing: '-0.03em',
-              lineHeight: 0.95,
-              color: '#fff',
-              margin: 0,
-            }}
-          >
-            {stats.titleMain}{' '}
-            <em style={{ fontWeight: 300, fontStyle: 'italic', color: '#71717a' }}>{stats.titleSub}</em>
-          </h2>
-        </div>
+        <FadeIn>
+          <div style={{ maxWidth: '48rem', marginBottom: '4rem' }}>
+            <p className="eyebrow" style={{ marginBottom: '1rem' }}>
+              <span style={{ color: '#52525b', marginRight: '0.75rem' }}>{stats.sectionNumber}</span>
+              {stats.sectionLabel}
+            </p>
+            <h2 id="stats-heading" className="section-title">
+              {stats.titleMain}{' '}
+              <em className="section-title-em">{stats.titleSub}</em>
+            </h2>
+          </div>
+        </FadeIn>
 
-        <dl style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', border: '1px solid var(--border)', borderBottom: 'none' }}>
-          <style>{`
-            @media (min-width: 640px) { .stats-dl { grid-template-columns: repeat(2, 1fr) !important; } }
-            @media (min-width: 1024px) { .stats-dl { grid-template-columns: repeat(4, 1fr) !important; } }
-          `}</style>
-
-          {stats.stats.map((stat, i) => {
-            const num = parseInt(stat.value.replace(/\D/g, ''), 10);
-            const suffix = stat.value.replace(/[0-9]/g, '');
-            return (
+        <div className="stats-dl" role="list" aria-label="Company statistics">
+          {stats.stats.map((stat, i) => (
+            <FadeIn key={stat.label} delay={i * 0.05}>
               <div
-                key={i}
+                role="listitem"
                 style={{
-                  padding: '3rem',
+                  padding: 'clamp(1.5rem, 4vw, 3rem)',
                   borderBottom: '1px solid var(--border)',
-                  borderLeft: i % 1 === 0 ? 'none' : '1px solid var(--border)',
+                  height: '100%',
                 }}
               >
-                <dt
+                <p
+                  aria-label={`${stat.value} ${stat.label}`}
                   style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(3rem, 6vw, 5rem)',
+                    fontFamily: 'var(--font-display), system-ui, sans-serif',
+                    fontSize: 'clamp(2.5rem, 6vw, 5rem)',
                     fontWeight: 900,
                     letterSpacing: '-0.04em',
                     lineHeight: 1,
@@ -53,18 +44,16 @@ export default function StatsSection() {
                     marginBottom: '1.5rem',
                   }}
                 >
-                  {stat.value}
-                </dt>
-                <dd style={{ margin: 0 }}>
-                  <p style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', fontWeight: 700, color: '#e4e4e7', marginBottom: '0.25rem' }}>
-                    {stat.label}
-                  </p>
-                  <p style={{ color: '#52525b', fontSize: '0.85rem' }}>{stat.note}</p>
-                </dd>
+                  <CountUp value={stat.value} duration={2200} />
+                </p>
+                <p style={{ fontFamily: 'var(--font-display), system-ui, sans-serif', fontSize: '1rem', fontWeight: 700, color: '#e4e4e7', marginBottom: '0.25rem' }}>
+                  {stat.label}
+                </p>
+                <p style={{ color: '#52525b', fontSize: '0.85rem', margin: 0 }}>{stat.note}</p>
               </div>
-            );
-          })}
-        </dl>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );
