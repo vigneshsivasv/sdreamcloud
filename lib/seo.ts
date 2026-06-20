@@ -69,11 +69,11 @@ export function createMetadata(overrides?: Partial<Metadata>): Metadata {
       apple: [{ url: '/favicon.png', sizes: '180x180', type: 'image/png' }],
     },
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
       googleBot: {
-        index: true,
-        follow: true,
+        index: false,
+        follow: false,
         'max-image-preview': 'large',
         'max-snippet': -1,
         'max-video-preview': -1,
