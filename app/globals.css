@@ -1190,3 +1190,8 @@ a {
     border-left: 1px solid var(--border);
   }
 }
+
+.skip-link,
+.screen-reader-text {
+    display: none !important;
+}
