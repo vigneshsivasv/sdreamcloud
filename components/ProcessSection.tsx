@@ -5,7 +5,7 @@ const { process } = siteData;
 
 export default function ProcessSection() {
   return (
-    <section id="process" aria-labelledby="process-heading" className="section-pad section-bg-alt section-border-top">
+    <section id="process" aria-labelledby="process-heading" className="section-pad section-border-top">
       <div className="container-lux">
         <FadeIn>
           <div style={{ maxWidth: '48rem', marginBottom: '4rem' }}>

@@ -7,13 +7,13 @@
   --bg-2: #f0f2f5;
   --surface: #ffffff;
   --surface-alt: #f0f2f5;
-  --border: #dddfe2;
+  --border: #f0f2f5;
   --text: #1c1e21;
   --text-secondary: #3a3b3c;
   --muted: #505358;
-  --accent: #1877F2;
-  --accent-dark: #166fe5;
-  --accent-light: #e7f3ff;
+  --accent: #F43F5E;
+  --accent-dark: #F43F5E;
+  --accent-light: #f43f5e1a;
   --heading: #1c1e21;
   --header-bg: rgba(255, 255, 255, 0.95);
 }
@@ -164,7 +164,8 @@ a {
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent);
+  font-weight: 700;
 }
 
 /* ── Buttons ── */
@@ -349,9 +350,9 @@ a {
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 .lx-card:hover {
-  border-color: rgba(24, 119, 242, 0.35);
+  border-color: var(--accent-light);
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(24, 119, 242, 0.1);
+  box-shadow: 0 8px 24px var(--accent-light);
 }
 
 /* ── Portfolio items ── */

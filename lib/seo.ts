@@ -10,6 +10,8 @@ export const siteConfig = {
   language: 'en',
   twitterHandle: '@sdreamclouds',
   email: 'sdreamclouds@gmail.com',
+  gtmId: 'GTM-MW3496JQ',
+  clarityId: 'xb270rp3yq',
   keywords: [
     'digital marketing agency',
     'SEO services',

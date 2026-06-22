@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" fill="none">
+  <defs>
+    <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"></stop>
+      <stop offset="100%" stop-color="#e11d48"></stop>
+    </linearGradient>
+  </defs>
+  <g transform="translate(10, 10)">
+    <circle cx="50" cy="50" r="45" fill="#e11d48" fill-opacity="0.08"></circle>
+    <circle cx="35" cy="55" r="28" fill="#e11d48" fill-opacity="0.12"></circle>
+    <circle cx="65" cy="45" r="22" fill="#e11d48" fill-opacity="0.08"></circle>
+    <text x="50" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="70" font-weight="bold" fill="url(#roseGrad)">S</text>
+  </g>
+  <text x="115" y="75" font-family="system-ui, sans-serif" font-size="48" font-weight="bold">
+    <tspan fill="#1A1A1A">Dream</tspan>
+    <tspan fill="url(#roseGrad)">clouds</tspan>
+  </text>
+</svg>

@@ -1,5 +1,7 @@
 import { Outfit, Manrope } from 'next/font/google';
-import { createMetadata } from '@/lib/seo';
+import { GoogleTagManager } from '@next/third-parties/google';
+import { createMetadata, siteConfig } from '@/lib/seo';
+import ClarityAnalytics from '@/components/ClarityAnalytics';
 import './globals.css';
 
 const outfit = Outfit({
@@ -25,7 +27,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${outfit.variable} ${manrope.variable}`}>
-      <body>{children}</body>
+      <GoogleTagManager gtmId={siteConfig.gtmId} />
+      <body>
+        <ClarityAnalytics />
+        {children}
+      </body>
     </html>
   );
 }

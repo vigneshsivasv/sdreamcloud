@@ -10,6 +10,8 @@
     "test:mail": "node scripts/test-mail.mjs"
   },
   "dependencies": {
+    "@microsoft/clarity": "^1.0.2",
+    "@next/third-parties": "^14.2.5",
     "framer-motion": "^12.40.0",
     "next": "14.2.5",
     "nodemailer": "^9.0.1",

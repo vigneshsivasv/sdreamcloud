@@ -13,7 +13,7 @@ const aboutStats = [
 
 export default function AboutSection() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="section-pad section-bg-alt">
+    <section id="about" aria-labelledby="about-heading" className="section-pad">
       <div className="container-lux">
         <div className="about-grid">
           <FadeIn variants={slideInLeft}>
