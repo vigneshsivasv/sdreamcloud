@@ -20,12 +20,11 @@ const TestimonialsSection = dynamic(() => import('@/components/TestimonialsSecti
 
 export const metadata: Metadata = createMetadata({
   title: siteConfig.title,
-  description:
-    'We transform ambitious brands into market leaders through data-driven digital marketing strategies: SEO, paid media, brand strategy, and content creation.',
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  ogImagePath: '/opengraph-image',
+  ogImageAlt: siteConfig.title,
   openGraph: {
-    title: siteConfig.title,
-    description:
-      'We transform ambitious brands into market leaders through data-driven digital marketing strategies: SEO, paid media, brand strategy, and content creation.',
     url: siteConfig.url,
   },
 });

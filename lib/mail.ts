@@ -34,16 +34,23 @@ function createTransporter() {
   const auth = getSmtpAuth();
 
   if (!auth) {
-    throw new Error('Mail is not configured. Set SMTP_USER and SMTP_PASS in .env.local');
+    throw new Error('Mail is not configured. Set SMTP_USER and SMTP_PASS in your hosting environment variables.');
   }
 
   const host = cleanEnv(process.env.SMTP_HOST) || 'smtp.gmail.com';
   const port = Number(cleanEnv(process.env.SMTP_PORT) || '587');
 
+  const transportOptions = {
+    auth,
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000,
+  };
+
   if (host.includes('gmail.com')) {
     return nodemailer.createTransport({
       service: 'gmail',
-      auth,
+      ...transportOptions,
     });
   }
 
@@ -51,27 +58,12 @@ function createTransporter() {
     host,
     port,
     secure: port === 465,
-    auth,
+    ...transportOptions,
   });
 }
 
-export async function sendContactEmail({ name, email, message }: ContactFormPayload) {
-  const to = getRecipient();
-  const auth = getSmtpAuth();
-
-  if (!auth) {
-    throw new Error('Mail is not configured. Set SMTP_USER and SMTP_PASS in .env.local');
-  }
-
-  const from = cleanEnv(process.env.SMTP_FROM) || `"Sdreamclouds Contact" <${auth.user}>`;
-  const transporter = createTransporter();
-
-  await transporter.verify();
-
-  await transporter.sendMail({
-    from,
-    to,
-    replyTo: `"${name}" <${email}>`,
+function buildEmailContent({ name, email, message }: ContactFormPayload) {
+  return {
     subject: `New contact from ${name} — Sdreamclouds`,
     text: [
       'New message from the Sdreamclouds contact form',
@@ -91,6 +83,28 @@ export async function sendContactEmail({ name, email, message }: ContactFormPayl
         <p style="white-space: pre-wrap; background: #f0f2f5; padding: 1rem; border-radius: 8px;">${escapeHtml(message)}</p>
       </div>
     `,
+  };
+}
+
+export async function sendContactEmail(payload: ContactFormPayload) {
+  const to = getRecipient();
+  const auth = getSmtpAuth();
+
+  if (!auth) {
+    throw new Error('Mail is not configured. Set SMTP_USER and SMTP_PASS in your hosting environment variables.');
+  }
+
+  const from = cleanEnv(process.env.SMTP_FROM) || `"Sdreamclouds Contact" <${auth.user}>`;
+  const transporter = createTransporter();
+  const { subject, text, html } = buildEmailContent(payload);
+
+  await transporter.sendMail({
+    from,
+    to,
+    replyTo: `"${payload.name}" <${payload.email}>`,
+    subject,
+    text,
+    html,
   });
 }
 
@@ -111,15 +125,19 @@ function getMailErrorMessage(error: unknown) {
   const msg = error.message.toLowerCase();
 
   if (msg.includes('not configured')) {
-    return 'Email is not configured. Add SMTP settings to .env.local and restart the server.';
+    return 'Email is not configured on the server. Add SMTP_USER and SMTP_PASS in Vercel/hosting environment variables, then redeploy.';
   }
 
   if (msg.includes('invalid login') || msg.includes('authentication') || msg.includes('username and password')) {
-    return 'Email login failed. Check SMTP_USER and SMTP_PASS (use a Gmail App Password, not your normal password).';
+    return 'Email login failed. Use a Gmail App Password for SMTP_PASS and redeploy with updated environment variables.';
+  }
+
+  if (msg.includes('timeout') || msg.includes('timed out') || msg.includes('etimedout')) {
+    return 'Email server timed out. Please try again in a moment or email us directly.';
   }
 
   if (msg.includes('self signed') || msg.includes('certificate')) {
-    return 'Email server connection failed. Check SMTP_HOST and SMTP_PORT.';
+    return 'Email server connection failed. Check SMTP_HOST and SMTP_PORT in your environment variables.';
   }
 
   return 'Unable to send your message right now. Please try again or email us directly.';

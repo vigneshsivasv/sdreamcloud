@@ -202,6 +202,11 @@ export const siteData = {
         answer:
           'Yes. We map existing URLs, set up 301 redirects, preserve metadata and structured data, monitor Search Console after launch, and fix crawl errors quickly. Whether you are moving to WordPress or refreshing an outdated design, we protect organic visibility while improving speed, UX, and conversion rate.',
       },
+      {
+        question: 'How do I start a digital marketing agency?',
+        answer:
+          'As your agency grows, continuously improve your processes, hire skilled professionals, and expand your service offerings to meet evolving market demands. Monitor key performance indicators, adapt to industry changes, and prioritize innovation to maintain a competitive advantage. By delivering exceptional value and fostering strong client partnerships, your digital marketing agency can achieve sustainable growth and establish a strong reputation in the industry.',
+      },
     ],
   },
 

@@ -63,7 +63,7 @@ export default function OgImage() {
             lineHeight: 1.4,
           }}
         >
-          SEO, Google Ads & Facebook advertising for growing brands
+          SEO, Google Ads & Facebook advertising — Digital Marketing Agency In India
         </div>
       </div>
     ),

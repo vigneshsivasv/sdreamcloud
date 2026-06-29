@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 
 export const siteConfig = {
   name: 'Sdreamclouds',
-  title: 'Sdreamclouds | Digital Marketing & SEO Agency',
+  title: 'Performance Marketing Agency In India | Sdreamclouds',
   description:
-    'Sdreamclouds is a results-driven digital marketing agency offering SEO services, Google Ads, Facebook advertising, content marketing, and conversion-focused web design for growing brands worldwide.',
+    'We are the Best Performance Marketing Agency In India helping businesses grow 3X to 4X with proven performance marketing strategies.',
   url: 'https://sdreamclouds.com',
   locale: 'en_US',
   language: 'en',
@@ -12,22 +12,30 @@ export const siteConfig = {
   email: 'sdreamclouds@gmail.com',
   gtmId: 'GTM-MW3496JQ',
   clarityId: 'xb270rp3yq',
+  focusKeyword: 'performance marketing agency in india',
   keywords: [
+    'digital marketing agency in india',
     'digital marketing agency',
+    'performance marketing agency in india',
+    'performance marketing agency',
+    'performance marketing agency india',
+    'digital marketing agency india',
+    'facebook ads agency in india',
+    'google ads lead generation services in india',
+    'meta ads lead generation',
     'SEO services',
     'search engine optimization',
     'Google Ads management',
     'Facebook advertising',
-    'Meta ads agency',
+    'paid media advertising',
     'content marketing strategy',
     'conversion rate optimization',
     'web design agency',
-    'social media marketing',
-    'local SEO services',
-    'paid media advertising',
-    'brand strategy consulting',
+    'brand strategy',
+    'brand strategy agency',
+    'brand strategy agency in india',
+    'brand strategy agency in india',
     'Sdreamclouds',
-    'S Dream Clouds',
   ],
   sameAs: [
     'https://twitter.com/sdreamclouds',
@@ -36,8 +44,46 @@ export const siteConfig = {
   ],
 } as const;
 
-export function createMetadata(overrides?: Partial<Metadata>): Metadata {
+export type PageSeo = {
+  title: string;
+  description: string;
+  keywords: string[];
+  focusKeyword?: string;
+  path?: string;
+};
+
+export function getOgImageUrl(path = '/opengraph-image') {
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  return `${siteConfig.url}${normalized}`;
+}
+
+export function buildOpenGraphImages(path = '/opengraph-image', alt?: string) {
+  return [
+    {
+      url: getOgImageUrl(path),
+      width: 1200,
+      height: 630,
+      alt: alt ?? `${siteConfig.name} – Digital Marketing Agency`,
+    },
+  ];
+}
+
+type CreateMetadataOptions = Partial<Metadata> & {
+  keywords?: string[];
+  ogImagePath?: string;
+  ogImageAlt?: string;
+};
+
+export function createMetadata(options: CreateMetadataOptions = {}): Metadata {
   const { name, title, description, url, locale, twitterHandle, keywords } = siteConfig;
+
+  const pageTitle = (options.title as string | undefined) ?? title;
+  const pageDescription = options.description ?? description;
+  const pageKeywords = options.keywords ?? [...keywords];
+  const ogPath = options.ogImagePath ?? '/opengraph-image';
+  const ogImages = buildOpenGraphImages(ogPath, options.ogImageAlt ?? pageTitle);
+
+  const { keywords: _k, ogImagePath: _p, ogImageAlt: _a, openGraph: ogOverride, twitter: twitterOverride, ...rest } = options;
 
   return {
     metadataBase: new URL(url),
@@ -45,8 +91,8 @@ export function createMetadata(overrides?: Partial<Metadata>): Metadata {
       default: title,
       template: `%s | ${name}`,
     },
-    description,
-    keywords: [...keywords],
+    description: pageDescription,
+    keywords: pageKeywords,
     authors: [{ name, url }],
     creator: name,
     publisher: name,
@@ -56,26 +102,30 @@ export function createMetadata(overrides?: Partial<Metadata>): Metadata {
       locale,
       url,
       siteName: name,
-      title,
-      description,
+      title: pageTitle,
+      description: pageDescription,
+      images: ogImages,
+      ...(ogOverride && typeof ogOverride === 'object' ? ogOverride : {}),
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
+      title: pageTitle,
+      description: pageDescription,
       creator: twitterHandle,
       site: twitterHandle,
+      images: [getOgImageUrl(ogPath)],
+      ...(twitterOverride && typeof twitterOverride === 'object' ? twitterOverride : {}),
     },
     icons: {
       icon: [{ url: '/favicon.png', sizes: '64x64', type: 'image/png' }],
       apple: [{ url: '/favicon.png', sizes: '180x180', type: 'image/png' }],
     },
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
       googleBot: {
-        index: false,
-        follow: false,
+        index: true,
+        follow: true,
         'max-image-preview': 'large',
         'max-snippet': -1,
         'max-video-preview': -1,
@@ -88,7 +138,7 @@ export function createMetadata(overrides?: Partial<Metadata>): Metadata {
         'x-default': url,
       },
     },
-    ...overrides,
+    ...rest,
   };
 }
 
@@ -141,7 +191,7 @@ export function marketingAgencySchema() {
     parentOrganization: { '@id': `${siteConfig.url}/#organization` },
     address: {
       '@type': 'PostalAddress',
-      addressCountry: 'US',
+      addressCountry: 'IN',
     },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -150,15 +200,20 @@ export function marketingAgencySchema() {
       availableLanguage: ['English'],
     },
     sameAs: siteConfig.sameAs,
-    areaServed: 'Worldwide',
+    areaServed: ['India', 'Worldwide'],
     knowsAbout: [
+      'Digital Marketing',
+      'Digital Marketing Agency',
+      'Digital Marketing Agency In India',
+      'Digital Marketing Agency In India',
+      'Performance Marketing',
+      'Brand Strategy',
       'Search Engine Optimization',
       'Google Ads',
       'Facebook Advertising',
       'Content Marketing',
       'Web Design',
       'Conversion Rate Optimization',
-      'Social Media Marketing',
     ],
   };
 }

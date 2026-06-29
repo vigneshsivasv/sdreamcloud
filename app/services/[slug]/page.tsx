@@ -21,8 +21,11 @@ export function generateMetadata({ params }: Props): Metadata {
   const url = `${siteConfig.url}/services/${service.slug}`;
 
   return createMetadata({
-    title: `${service.title} – Sdreamclouds`,
+    title: `${service.title} | ${siteConfig.name}`,
     description: service.metaDescription,
+    keywords: service.keywords,
+    ogImagePath: `/services/${service.slug}/opengraph-image`,
+    ogImageAlt: `${service.title} – ${siteConfig.name}`,
     alternates: {
       canonical: url,
       languages: {
