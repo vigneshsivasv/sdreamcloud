@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { siteConfig } from '@/lib/seo';
 
 export const runtime = 'edge';
-export const alt = `${siteConfig.name} – Digital Marketing Agency`;
+export const alt = `${siteConfig.name} – Performance Marketing Agency`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -17,7 +17,7 @@ export default function OgImage() {
           flexDirection: 'column',
           justifyContent: 'center',
           padding: '80px',
-          background: 'linear-gradient(135deg, #ffffff 0%, #f0f2f5 50%, #ffffff 100%)',
+          background: 'linear-gradient(135deg, #050505 0%, #121212 50%, #050505 100%)',
           fontFamily: 'system-ui, sans-serif',
         }}
       >
@@ -38,32 +38,32 @@ export default function OgImage() {
           >
             S
           </div>
-          <span style={{ color: '#505358', fontSize: '20px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-            Digital Marketing Agency
+          <span style={{ color: '#a3a3a3', fontSize: '20px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+            Business Growth Agency
           </span>
         </div>
         <div
           style={{
-            fontSize: '72px',
+            fontSize: '64px',
             fontWeight: 800,
-            color: '#1c1e21',
+            color: '#ffffff',
             lineHeight: 1.05,
             letterSpacing: '-0.04em',
             maxWidth: '900px',
           }}
         >
-          {siteConfig.name}
+          1 growth plan. 10x more leads.
         </div>
         <div
           style={{
-            fontSize: '28px',
-            color: '#3a3b3c',
+            fontSize: '26px',
+            color: '#a3a3a3',
             marginTop: '24px',
             maxWidth: '800px',
             lineHeight: 1.4,
           }}
         >
-          SEO, Google Ads & Facebook advertising — Digital Marketing Agency In India
+          Performance marketing, SEO & paid ads for brands that want to grow
         </div>
       </div>
     ),

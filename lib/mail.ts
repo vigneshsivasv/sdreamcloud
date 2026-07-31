@@ -42,6 +42,7 @@ function createTransporter() {
 
   const transportOptions = {
     auth,
+    requireTLS: port === 587,
     connectionTimeout: 15000,
     greetingTimeout: 15000,
     socketTimeout: 20000,

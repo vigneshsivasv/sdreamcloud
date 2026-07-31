@@ -19,7 +19,6 @@ export async function generateMetadata({ params }: Props) {
 
 export default function ServiceOgImage({ params }: Props) {
   const service = getServiceBySlug(params.slug);
-
   const heading = service?.title ?? siteConfig.name;
   const subline = service?.focusKeyword ?? 'Digital Marketing Services';
 
@@ -33,7 +32,7 @@ export default function ServiceOgImage({ params }: Props) {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '72px',
-          background: 'linear-gradient(135deg, #ffffff 0%, #f0f2f5 50%, #ffffff 100%)',
+          background: 'linear-gradient(135deg, #050505 0%, #121212 55%, #050505 100%)',
           fontFamily: 'system-ui, sans-serif',
         }}
       >
@@ -54,7 +53,7 @@ export default function ServiceOgImage({ params }: Props) {
           >
             S
           </div>
-          <span style={{ color: '#505358', fontSize: '18px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+          <span style={{ color: '#a3a3a3', fontSize: '18px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
             {siteConfig.name}
           </span>
         </div>
@@ -63,7 +62,7 @@ export default function ServiceOgImage({ params }: Props) {
             style={{
               fontSize: '56px',
               fontWeight: 800,
-              color: '#1c1e21',
+              color: '#ffffff',
               lineHeight: 1.05,
               letterSpacing: '-0.04em',
               maxWidth: '1000px',
@@ -72,7 +71,7 @@ export default function ServiceOgImage({ params }: Props) {
           >
             {heading}
           </div>
-          <div style={{ fontSize: '24px', color: '#3a3b3c', maxWidth: '900px', lineHeight: 1.4 }}>
+          <div style={{ fontSize: '24px', color: '#a3a3a3', maxWidth: '900px', lineHeight: 1.4 }}>
             {subline}
           </div>
         </div>

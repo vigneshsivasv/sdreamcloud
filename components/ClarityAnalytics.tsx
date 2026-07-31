@@ -1,12 +1,27 @@
 'use client';
 
 import { useEffect } from 'react';
-import Clarity from '@microsoft/clarity';
 import { siteConfig } from '@/lib/seo';
 
 export default function ClarityAnalytics() {
   useEffect(() => {
-    Clarity.init(siteConfig.clarityId);
+    let cancelled = false;
+
+    async function loadClarity() {
+      try {
+        const Clarity = (await import('@microsoft/clarity')).default;
+        if (!cancelled) {
+          Clarity.init(siteConfig.clarityId);
+        }
+      } catch (error) {
+        console.warn('[clarity] failed to load', error);
+      }
+    }
+
+    loadClarity();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return null;

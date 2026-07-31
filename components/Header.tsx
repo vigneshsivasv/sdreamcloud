@@ -5,9 +5,9 @@ import { useState, useEffect, useCallback } from 'react';
 import Logo from '@/components/Logo';
 
 const navLinks = [
-  { label: 'About', href: '/#about' },
   { label: 'Services', href: '/#services' },
   { label: 'Process', href: '/#process' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
 export default function Header() {
@@ -15,7 +15,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -30,10 +30,7 @@ export default function Header() {
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   return (
-    <header
-      role="banner"
-      className={`site-header ${scrolled ? 'site-header-scrolled' : ''}`}
-    >
+    <header role="banner" className={`site-header ${scrolled ? 'site-header-scrolled' : ''}`}>
       <div className="container-lux site-header-inner">
         <Logo priority />
 
@@ -43,8 +40,8 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-primary btn-nav-cta">
-            Get in touch
+          <Link href="/#cta" className="btn-primary btn-nav-cta">
+            Sign up free
           </Link>
         </nav>
 
@@ -65,17 +62,12 @@ export default function Header() {
       {menuOpen && (
         <nav id="mobile-menu" aria-label="Mobile navigation" className="mobile-nav">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={closeMenu}
-              className="mobile-nav-link"
-            >
+            <Link key={link.href} href={link.href} onClick={closeMenu} className="mobile-nav-link">
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" onClick={closeMenu} className="btn-primary mobile-nav-cta">
-            Get in touch
+          <Link href="/#cta" onClick={closeMenu} className="btn-primary mobile-nav-cta">
+            Sign up free
           </Link>
         </nav>
       )}
