@@ -36,11 +36,24 @@ export default function Header() {
 
         <nav aria-label="Primary navigation" className="desktop-nav">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="nav-link">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="nav-link"
+              data-cursor="view"
+              data-cursor-label={link.label}
+              data-magnetic="8"
+            >
               {link.label}
             </Link>
           ))}
-          <Link href="/#cta" className="btn-primary btn-nav-cta">
+          <Link
+            href="/#cta"
+            className="btn-primary btn-nav-cta"
+            data-cursor="cta"
+            data-cursor-label="Sign up"
+            data-magnetic="10"
+          >
             Sign up free
           </Link>
         </nav>

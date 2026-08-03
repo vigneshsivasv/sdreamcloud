@@ -11,7 +11,7 @@ export default function FaqSection() {
   return (
     <section id="faq" className="section-pad section-border-top" aria-labelledby="faq-heading">
       <div className="container-lux" style={{ maxWidth: '820px' }}>
-        <div className="section-header-block">
+        <div className="section-header-block" data-reveal>
           <p className="eyebrow">{faq.sectionLabel}</p>
           <h2 id="faq-heading" className="section-title">
             {faq.titleMain}
@@ -25,7 +25,14 @@ export default function FaqSection() {
             const buttonId = `faq-button-${index}`;
 
             return (
-              <div key={item.question} className="faq-item">
+              <div
+                key={item.question}
+                className="faq-item"
+                data-reveal
+                data-magnetic="8"
+                data-cursor="discover"
+                data-cursor-label="FAQ"
+              >
                 <dt>
                   <button
                     id={buttonId}

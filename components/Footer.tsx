@@ -10,13 +10,13 @@ type SocialNetwork = 'linkedin' | 'twitter' | 'instagram';
 function FooterLink({ href, label }: { href: string; label: string }) {
   if (href.startsWith('/')) {
     return (
-      <Link href={href} className="link-footer">
+      <Link href={href} className="link-footer" data-cursor="view" data-cursor-label={label}>
         {label}
       </Link>
     );
   }
   return (
-    <a href={href} className="link-footer">
+    <a href={href} className="link-footer" data-cursor="view" data-cursor-label={label}>
       {label}
     </a>
   );
@@ -48,67 +48,76 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer role="contentinfo" className="footer">
-      <div className="container-lux">
-        <div className="footer-grid">
-          <div className="footer-col footer-col-brand">
-            <Logo />
-            <p className="footer-tagline">{footer.tagline}</p>
-            <a href={`mailto:${siteConfig.email}`} className="footer-email">
-              {siteConfig.email}
-            </a>
-          </div>
-
-          <nav aria-label="Explore navigation" className="footer-col">
-            <p className="footer-nav-label">Explore</p>
-            <ul className="footer-nav-list">
-              {footer.links.explore.map((l) => (
-                <li key={l.label}>
-                  <FooterLink href={l.href} label={l.label} />
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-label="Services navigation" className="footer-col">
-            <p className="footer-nav-label">Services</p>
-            <ul className="footer-nav-list">
-              {footer.links.services.map((l) => (
-                <li key={l.label}>
-                  <FooterLink href={l.href} label={l.label} />
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="footer-col footer-col-connect">
-            <p className="footer-nav-label">Connect</p>
-            <ul className="footer-social-list">
-              {footer.links.social.map((l) => (
-                <li key={l.network}>
-                  <a
-                    href={l.href}
-                    className="footer-social-link"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    aria-label={l.label}
-                  >
-                    <SocialIcon network={l.network} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <Link href="/#cta" className="footer-contact-link">
-              Sign up free →
-            </Link>
-          </div>
+    <footer role="contentinfo" className="site-footer">
+      <div className="container-lux site-footer__top">
+        <div className="site-footer__brand-block">
+          <Logo />
+          <p className="site-footer__tagline">{footer.tagline}</p>
+          <a href={`mailto:${siteConfig.email}`} className="site-footer__email">
+            {siteConfig.email}
+          </a>
         </div>
 
-        <div className="footer-bottom">
-          <p className="footer-copyright">
-            © {year} {footer.copyright}
-          </p>
+        <nav aria-label="Explore navigation" className="site-footer__col">
+          <p className="site-footer__label">Explore</p>
+          <ul>
+            {footer.links.explore.map((l) => (
+              <li key={l.label}>
+                <FooterLink href={l.href} label={l.label} />
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Services navigation" className="site-footer__col">
+          <p className="site-footer__label">Services</p>
+          <ul>
+            {footer.links.services.map((l) => (
+              <li key={l.label}>
+                <FooterLink href={l.href} label={l.label} />
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="site-footer__col">
+          <p className="site-footer__label">Connect</p>
+          <ul className="site-footer__social">
+            {footer.links.social.map((l) => (
+              <li key={l.network}>
+                <a
+                  href={l.href}
+                  className="site-footer__social-link"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label={l.label}
+                  data-cursor="discover"
+                  data-cursor-label={l.label}
+                  data-magnetic="10"
+                >
+                  <SocialIcon network={l.network} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
+
+      <div className="site-footer__hero-nav" data-reveal>
+        <Link href="/" className="site-footer__hero-word" data-cursor="view" data-cursor-label="Home">
+          Sdream
+        </Link>
+        <span className="site-footer__slash-wrap" aria-hidden="true">
+          <span className="site-footer__slash">/</span>
+          <span className="site-footer__red-dot" />
+        </span>
+        <Link href="/#cta" className="site-footer__home" data-cursor="cta" data-cursor-label="Audit">
+          Clouds
+        </Link>
+      </div>
+
+      <div className="container-lux site-footer__bottom">
+        <p>© {year} {footer.copyright}</p>
       </div>
     </footer>
   );

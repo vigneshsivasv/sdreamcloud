@@ -7,7 +7,8 @@ export default function FinalCtaSection() {
   return (
     <section id="cta" className="final-cta" aria-labelledby="cta-heading">
       <div className="container-lux">
-        <div className="final-cta-panel">
+        <div className="final-cta-panel" data-reveal data-magnetic="8">
+          <p className="eyebrow">Start today</p>
           <h2 id="cta-heading" className="section-title">
             {cta.titleMain}
             <br />
@@ -16,12 +17,14 @@ export default function FinalCtaSection() {
           <p className="text-secondary" style={{ marginTop: '1rem', maxWidth: '28rem', lineHeight: 1.7 }}>
             {cta.description}
           </p>
-          <LeadForm
-            source="final-cta"
-            compact
-            placeholder={cta.placeholder}
-            buttonText={cta.btnText}
-          />
+          <div data-cursor="cta" data-cursor-label="Join">
+            <LeadForm
+              source="final-cta"
+              compact
+              placeholder={cta.placeholder}
+              buttonText={cta.btnText}
+            />
+          </div>
         </div>
       </div>
     </section>

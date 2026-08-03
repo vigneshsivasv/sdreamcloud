@@ -94,7 +94,15 @@ export default function LeadForm({
           className="lead-input lead-input-main"
           aria-label="Email address"
         />
-        <button type="submit" className="btn-lead" disabled={loading} aria-busy={loading}>
+        <button
+          type="submit"
+          className="btn-lead"
+          disabled={loading}
+          aria-busy={loading}
+          data-cursor="cta"
+          data-cursor-label="Sign up"
+          data-magnetic="12"
+        >
           {loading ? 'Sending…' : buttonText}
         </button>
       </div>

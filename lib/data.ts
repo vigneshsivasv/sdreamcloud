@@ -187,6 +187,45 @@ export const siteData = {
     ],
   },
 
+  blog: {
+    sectionLabel: 'Sdreamclouds Blog',
+    titleMain: 'Ideas worth',
+    titleSub: 'building with.',
+    intro:
+      'Practical thinking on SEO, ads, content, websites, and the growth systems behind brands that actually convert.',
+    filters: ['All', 'Read', 'Watch', 'Listen', 'News'],
+    posts: [
+      {
+        title: 'How local businesses can rank #1 on Google',
+        category: 'Read',
+        href: '/#cta',
+        image: 'https://images.unsplash.com/photo-1432888498266-38ffec3bdb47?w=800&h=900&fit=crop&q=80',
+        imageAlt: 'SEO strategy notes and laptop',
+      },
+      {
+        title: 'Facebook ads that book more calls, not vanity clicks',
+        category: 'Watch',
+        href: '/#cta',
+        image: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=900&fit=crop&q=80',
+        imageAlt: 'Social media advertising creative on phone',
+      },
+      {
+        title: 'Website CRO checklist before you spend on ads',
+        category: 'Read',
+        href: '/#cta',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=900&fit=crop&q=80',
+        imageAlt: 'Conversion analytics dashboard',
+      },
+      {
+        title: 'Why PageSpeed is a lead-gen feature, not a nice-to-have',
+        category: 'News',
+        href: '/#cta',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=900&fit=crop&q=80',
+        imageAlt: 'Performance metrics on monitor',
+      },
+    ],
+  },
+
   cta: {
     titleMain: 'Get started with',
     titleSub: 'Sdreamclouds.',
@@ -200,7 +239,6 @@ export const siteData = {
     copyright: 'Sdreamclouds. All rights reserved.',
     links: {
       explore: [
-        { label: 'About', href: '/#about' },
         { label: 'Services', href: '/#services' },
         { label: 'Process', href: '/#process' },
         { label: 'FAQ', href: '/#faq' },

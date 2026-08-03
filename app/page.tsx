@@ -5,11 +5,9 @@ import JsonLd from '@/components/JsonLd';
 import PageShell from '@/components/PageShell';
 import HeroSection from '@/components/HeroSection';
 import LogoBar from '@/components/LogoBar';
-import FeaturesSection from '@/components/FeaturesSection';
 import ServicesSection from '@/components/ServicesSection';
 import ProcessSection from '@/components/ProcessSection';
 import BenefitsSection from '@/components/BenefitsSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
 import FaqSection from '@/components/FaqSection';
 import FinalCtaSection from '@/components/FinalCtaSection';
 
@@ -38,11 +36,10 @@ export default function HomePage() {
       <JsonLd data={structuredData} />
       <HeroSection />
       <LogoBar />
-      <FeaturesSection />
       <ServicesSection />
       <ProcessSection />
       <BenefitsSection />
-      {/* <TestimonialsSection /> */}
+      {/* Blog hidden until single pages are ready */}
       <FaqSection />
       <FinalCtaSection />
     </PageShell>

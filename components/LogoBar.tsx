@@ -4,12 +4,21 @@ const { logos } = siteData;
 
 export default function LogoBar() {
   return (
-    <section className="logo-bar" aria-label="Platforms we work with">
+    <section id="about" className="logo-bar" aria-label="Platforms we work with">
       <div className="container-lux">
-        <p className="logo-bar-label">{logos.label}</p>
+        <p className="logo-bar-label" data-reveal>
+          {logos.label}
+        </p>
         <div className="logo-bar-row">
           {logos.items.map((item) => (
-            <span key={item} className="logo-chip">
+            <span
+              key={item}
+              className="logo-chip"
+              data-reveal
+              data-magnetic="10"
+              data-cursor="discover"
+              data-cursor-label={item}
+            >
               {item}
             </span>
           ))}

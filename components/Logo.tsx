@@ -10,12 +10,12 @@ export default function Logo({ priority = false }: LogoProps) {
   return (
     <Link href="/" aria-label={`${siteConfig.name} home`} className="site-logo-link">
       <Image
-        src="/logo-white.svg"
+        src="/logo-black.svg"
         alt={siteConfig.name}
         width={200}
         height={90}
         priority={priority}
-        style={{ width: 'auto', height: '75px', objectFit: 'contain' }}
+        className="site-logo-img"
       />
     </Link>
   );
