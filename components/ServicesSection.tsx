@@ -7,8 +7,8 @@ import { getServiceHref } from '@/lib/services';
 
 const { services } = siteData;
 
-const WHEEL_A = ['SEO Growth', 'Paid Media', 'Brand Strategy', 'Content'];
-const WHEEL_B = ['Web Design', 'Analytics', 'CRO', 'Lead Gen'];
+const WHEEL_A = ['SEO Services', 'Google Ads', 'Social Media', 'Content'];
+const WHEEL_B = ['Web Design', 'Brand Strategy', 'Analytics', 'CRO'];
 
 type DetailItem = {
   id: string;
@@ -47,61 +47,50 @@ const DETAIL_ITEMS: DetailItem[] = [
     num: '/48hr',
     copy: 'Audit to roadmap fast — clear priorities, channel plan, and next steps without fluff.',
     points: [
-      'Free growth audit within 48 hours',
+      'Growth audit within 48 hours',
       'Campaigns live in days, not months',
       'Weekly optimization loops after launch',
     ],
   },
 ];
 
-function ServiceWheel({
+function ServiceTile({
   words,
   variant,
-  pathId,
 }: {
   words: string[];
   variant: 'light' | 'dark';
-  pathId: string;
 }) {
-  const path = 'M260,260 m-202,0 a202,202 0 1,1 404,0 a202,202 0 1,1 -404,0';
-  const offsets = ['3%', '15.5%', '28%', '40.5%', '53%', '65.5%', '78%', '90.5%'];
-  const looped = [...words, ...words];
+  const [top, right, bottom, left] = words;
 
   return (
     <div
-      className={`svc-wheel ${variant === 'dark' ? 'svc-wheel--dark' : ''}`}
+      className={`svc-tile ${variant === 'dark' ? 'svc-tile--dark' : ''}`}
       data-cursor="discover"
       data-cursor-label="Services"
     >
-      <div className="svc-wheel__donut" aria-hidden="true" />
-      <div className="svc-wheel__rotor" aria-hidden="true">
-        <svg className="svc-wheel__svg" viewBox="0 0 520 520">
-          <defs>
-            <path id={pathId} d={path} />
-          </defs>
-          {looped.map((word, i) => (
-            <text key={`${word}-${i}`} className="svc-wheel__word">
-              <textPath href={`#${pathId}`} startOffset={offsets[i]}>
-                {word}
-              </textPath>
-            </text>
-          ))}
-        </svg>
-      </div>
-      {variant === 'light' ? (
-        <div className="svc-wheel__center" aria-hidden="true">
-          <div className="svc-wheel__paper" />
-          <svg className="svc-wheel__writing" viewBox="0 0 100 80">
-            <path d="M8 20 C24 8, 42 31, 58 18 S85 18, 92 28" />
-            <path d="M13 42 C30 34, 47 50, 64 39 S83 38, 91 47" />
-            <path d="M20 61 C36 55, 50 67, 73 58" />
+      <div className="svc-tile__frame" aria-hidden="true" />
+      <span className="svc-tile__edge svc-tile__edge--top">{top}</span>
+      <span className="svc-tile__edge svc-tile__edge--right">{right}</span>
+      <span className="svc-tile__edge svc-tile__edge--bottom">{bottom}</span>
+      <span className="svc-tile__edge svc-tile__edge--left">{left}</span>
+
+      <div className="svc-tile__core" aria-hidden="true">
+        {variant === 'light' ? (
+          <svg className="svc-tile__icon" viewBox="0 0 64 64" fill="none">
+            <path d="M10 46V34h8v12H10zm12 0V22h8v24h-8zm12 0V28h8v18h-8zm12 0V14h8v32h-8z" fill="currentColor" opacity="0.18" />
+            <path d="M12 40l12-12 8 6 16-18" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="48" cy="16" r="3.5" fill="var(--accent)" />
           </svg>
-          <span className="svc-wheel__ink" />
-          <div className="svc-wheel__pencil" />
-        </div>
-      ) : (
-        <div className="svc-wheel__mark" aria-hidden="true" />
-      )}
+        ) : (
+          <svg className="svc-tile__icon" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="18" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
+            <circle cx="32" cy="32" r="10" stroke="rgba(255,255,255,0.55)" strokeWidth="2" />
+            <circle cx="32" cy="32" r="4" fill="var(--accent)" />
+            <path d="M32 8v6M32 50v6M8 32h6M50 32h6" stroke="rgba(255,255,255,0.45)" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        )}
+      </div>
     </div>
   );
 }
@@ -189,10 +178,10 @@ export default function ServicesSection() {
           </h2>
 
           <div ref={trackRef} className="svc-track">
-            <ServiceWheel words={WHEEL_A} variant="light" pathId="svcPathA" />
-            <ServiceWheel words={WHEEL_B} variant="dark" pathId="svcPathB" />
-            <ServiceWheel words={WHEEL_A} variant="light" pathId="svcPathA2" />
-            <ServiceWheel words={WHEEL_B} variant="dark" pathId="svcPathB2" />
+            <ServiceTile words={WHEEL_A} variant="light" />
+            <ServiceTile words={WHEEL_B} variant="dark" />
+            <ServiceTile words={WHEEL_A} variant="light" />
+            <ServiceTile words={WHEEL_B} variant="dark" />
           </div>
 
           <button
@@ -283,15 +272,15 @@ export default function ServicesSection() {
         </div>
 
         <div className="svc-detail__right">
-          <div className="svc-detail__card" data-magnetic="12" data-cursor="cta" data-cursor-label="Audit">
+          <div className="svc-detail__card" data-magnetic="12" data-cursor="cta" data-cursor-label="Contact">
             <p className="svc-detail__card-label">{services.sectionLabel}</p>
             <h3 className="svc-detail__card-title">
               {services.titleMain}
               <em> {services.titleSub}</em>
             </h3>
             <p className="svc-detail__card-copy">{services.description}</p>
-            <Link href="/#cta" className="btn-primary svc-detail__cta">
-              Get free growth audit
+            <Link href="/contact" className="btn-primary svc-detail__cta">
+              {services.ctaText}
             </Link>
           </div>
         </div>

@@ -111,7 +111,7 @@ export default function Footer() {
           <span className="site-footer__slash">/</span>
           <span className="site-footer__red-dot" />
         </span>
-        <Link href="/#cta" className="site-footer__home" data-cursor="cta" data-cursor-label="Audit">
+        <Link href="/contact" className="site-footer__home" data-cursor="cta" data-cursor-label="Contact">
           Clouds
         </Link>
       </div>

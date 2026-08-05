@@ -1,8 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { siteConfig } from '@/lib/seo';
+import { getServiceBySlug } from '@/lib/services';
 import FadeIn from '@/components/ui/FadeIn';
 import { slideInLeft } from '@/lib/animations';
 
@@ -37,10 +39,25 @@ function validateForm(form: FormState) {
 }
 
 export default function ContactSection({ asPage = false }: ContactSectionProps) {
+  const searchParams = useSearchParams();
+  const serviceSlug = searchParams.get('service') ?? '';
+  const service = serviceSlug ? getServiceBySlug(serviceSlug) : undefined;
+
   const [form, setForm] = useState<FormState>({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (!service) return;
+    setForm((current) => {
+      if (current.message.trim()) return current;
+      return {
+        ...current,
+        message: `I'm interested in ${service.title}. Please share how we can get started.`,
+      };
+    });
+  }, [service]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -109,7 +126,9 @@ export default function ContactSection({ asPage = false }: ContactSectionProps) 
               <em className="section-title-em">worth talking about.</em>
             </h1>
             <p className="text-secondary" style={{ lineHeight: 1.7, maxWidth: '28rem', marginBottom: '2.5rem' }}>
-              Whether you&apos;re starting from scratch or scaling what&apos;s working, we&apos;d love to hear about your goals. Reach out — no pitches, just conversation.
+              {service
+                ? `You're asking about ${service.title}. Tell us your goals — we'll reply with a clear next step.`
+                : 'Whether you\u2019re starting from scratch or scaling what\u2019s working, we\u2019d love to hear about your goals. Reach out — no pitches, just conversation.'}
             </p>
             <address style={{ fontStyle: 'normal' }}>
               <dl className="contact-details">

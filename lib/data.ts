@@ -1,18 +1,19 @@
 export const siteData = {
   hero: {
-    sectionLabel: 'Business Growth Agency',
-    titleMain: '1 growth plan.',
-    titleSub: '10x more leads.',
+    sectionLabel: 'Digital Marketing Agency',
+    titleMain: 'A Digital Marketing Agency',
+    titleSub: 'Built to Grow Your Business',
+    tagline: 'Grow with data. Not guesswork.',
     description:
-      'Sdreamclouds helps brands turn websites, SEO, and paid ads into a predictable lead engine — so you grow revenue without guessing.',
+      'Sdreamclouds is a full-service digital marketing agency delivering SEO, Google Ads, social media marketing, and website development — turning traffic into a predictable pipeline of leads.',
     placeholder: 'Enter your work email',
-    btnText: 'Get free growth audit',
-    proof: 'Free 48-hour audit · No pitch spam · Real strategy',
+    btnText: 'Contact Us',
+    proof: 'No pitch spam · Real strategy',
   },
 
   logos: {
-    label: 'Trusted channels we grow brands on',
-    items: ['Google', 'Meta', 'YouTube', 'LinkedIn', 'Instagram', 'WordPress'],
+    label: 'A digital marketing agency working across every major channel',
+    items: ['Google Ads', 'Meta Ads', 'SEO', 'YouTube', 'LinkedIn', 'WordPress'],
   },
 
   features: {
@@ -21,14 +22,14 @@ export const siteData = {
     titleSub: 'understand your funnel.',
     cards: [
       {
-        title: 'Performance SEO',
-        description: 'Rank for buyer-intent keywords and compound organic leads every month.',
+        title: 'SEO Services',
+        description: 'Rank higher on Google and turn search traffic into paying customers.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=520&fit=crop&q=80',
         imageAlt: 'SEO analytics dashboard showing organic growth',
       },
       {
-        title: 'Paid Ads that convert',
-        description: 'Google Ads and Meta campaigns built for ROAS, not vanity clicks.',
+        title: 'Google Ads & PPC',
+        description: 'Campaigns optimized for cost-per-lead, not just clicks.',
         image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=520&fit=crop&q=80',
         imageAlt: 'Paid media campaign performance charts',
       },
@@ -36,41 +37,48 @@ export const siteData = {
   },
 
   services: {
-    sectionLabel: 'Services',
-    titleMain: 'Everything your brand',
-    titleSub: 'needs to grow online.',
+    sectionLabel: 'Digital Marketing Services',
+    titleMain: 'Digital marketing',
+    titleSub: 'built as one growth system.',
     description:
-      'From website builds to SEO, Facebook ads, and conversion optimization — one agency, one growth engine.',
+      'As a digital marketing agency, we combine SEO, paid advertising, content, and web design into one growth system — built around your goals, not a one-size-fits-all package.',
+    ctaText: 'Contact Us',
     services: [
       {
         slug: 'seo-organic-growth',
-        title: 'SEO & Organic Growth',
-        description: 'Technical SEO, content clusters, and rankings that bring qualified traffic.',
+        title: 'SEO Services',
+        description:
+          'Rank higher on Google and turn search traffic into paying customers. Our SEO agency builds technical SEO, local SEO, and content strategies that compound over time.',
       },
       {
         slug: 'paid-media',
-        title: 'Paid Media & PPC',
-        description: 'Google Ads and Facebook advertising optimized for leads and ROAS.',
-      },
-      {
-        slug: 'brand-strategy',
-        title: 'Brand Strategy',
-        description: 'Positioning and messaging that make your offer impossible to ignore.',
+        title: 'Google Ads & PPC',
+        description:
+          'As a performance-driven digital marketing agency, we run Google Ads and Meta Ads campaigns optimized for cost-per-lead, not just clicks.',
       },
       {
         slug: 'content-creation',
-        title: 'Content Marketing',
-        description: 'SEO blogs, landing pages, and social content that moves buyers.',
+        title: 'Social Media Marketing',
+        description:
+          'We manage social media for growing brands — building content calendars, running paid social, and growing engaged audiences.',
       },
       {
         slug: 'web-design-dev',
-        title: 'Web Design & Development',
-        description: 'Fast sites and landing pages built for conversions and PageSpeed.',
+        title: 'Website Development',
+        description:
+          'Fast, mobile-first websites built for search visibility and conversions — including custom WordPress builds.',
+      },
+      {
+        slug: 'brand-strategy',
+        title: 'Brand Strategy & Content Marketing',
+        description:
+          'A brand strategy agency approach — positioning your business clearly before you spend a rupee on ads.',
       },
       {
         slug: 'analytics-cro',
         title: 'Analytics & CRO',
-        description: 'GA4, heatmaps, and A/B tests that unlock higher conversion rates.',
+        description:
+          'Traffic without conversion is just noise. We track what matters and run structured tests to convert more of your existing traffic.',
       },
     ],
   },
@@ -101,19 +109,19 @@ export const siteData = {
     titleSub: 'scaling chaos.',
     cards: [
       {
-        title: 'Faster delivery',
+        title: 'Faster Delivery',
         description: 'Strategy within 48 hours. Campaigns live in days, not months.',
         metric: '48hr',
         metricLabel: 'audit turnaround',
       },
       {
-        title: 'Proven systems',
+        title: 'Proven Systems',
         description: 'SEO + ads + CRO stacked together so every channel feeds the next.',
         metric: '3x',
         metricLabel: 'pipeline focus',
       },
       {
-        title: 'Built for owners',
+        title: 'Built For Owners',
         description: 'Direct strategist access, clear reporting, and zero agency fluff.',
         metric: '1:1',
         metricLabel: 'growth partner',
@@ -160,29 +168,19 @@ export const siteData = {
     titleSub: '',
     items: [
       {
-        question: 'Do you build and customize WordPress websites for businesses?',
+        question: 'How long does SEO take to show results?',
         answer:
-          'Yes. Sdreamclouds designs and develops custom WordPress sites with clean architecture, secure plugins, mobile-responsive layouts, and admin-friendly editing — plus launch support so performance and SEO stay intact.',
+          'SEO is a medium-to-long-term channel. Most businesses see initial ranking movement in 8–12 weeks and stronger results in 4–6 months, depending on competition. For visibility within days, we recommend pairing SEO with Google Ads.',
       },
       {
-        question: 'What does your website development process include?',
+        question: 'Can I rank on Google in 1 week?',
         answer:
-          'Sitemap and wireframes, UI design, front-end development, CMS setup, forms and analytics, QA, and a structured launch checklist. We ship fast sites with clear conversion paths.',
+          "Organic rankings in 1 week aren't realistic — Google needs time to crawl, index, and evaluate trust signals. What can go live within a week are Google Ads campaigns, a Google Business Profile listing, and directory citations, which create immediate visibility while SEO builds in the background.",
       },
       {
-        question: 'How do you improve PageSpeed and Core Web Vitals?',
+        question: 'What makes Sdreamclouds different from other digital marketing agencies?',
         answer:
-          'We audit scripts, images, fonts, caching, and server response — then compress assets, lazy-load media, minify code, and optimize LCP, INP, and CLS for Google performance benchmarks.',
-      },
-      {
-        question: 'What on-page SEO do you implement during development?',
-        answer:
-          'Title tags, meta descriptions, headings, internal links, alt text, schema, canonicals, and XML sitemaps — structured around buyer-intent keywords so pages are indexable and conversion-ready.',
-      },
-      {
-        question: 'Can you redesign a site without losing search rankings?',
-        answer:
-          'Yes. We map URLs, set 301 redirects, preserve metadata, monitor Search Console after launch, and fix crawl issues quickly so you improve UX and speed without sacrificing organic visibility.',
+          'We combine SEO, paid media, and conversion optimization into one connected system instead of treating each channel separately — with direct strategist access and clear, jargon-free reporting.',
       },
     ],
   },
@@ -229,9 +227,10 @@ export const siteData = {
   cta: {
     titleMain: 'Get started with',
     titleSub: 'Sdreamclouds.',
-    description: 'Book your free growth audit. Tell us your goals — we reply with a clear plan.',
+    description:
+      'Book your free digital marketing audit. Tell us your goals — we reply with a clear plan.',
     placeholder: 'Enter your work email',
-    btnText: 'Start free audit',
+    btnText: 'Contact Us',
   },
 
   footer: {
@@ -245,9 +244,9 @@ export const siteData = {
         { label: 'Contact', href: '/contact' },
       ],
       services: [
-        { label: 'SEO & Organic Growth', href: '/services/seo-organic-growth' },
-        { label: 'Web Design & Development', href: '/services/web-design-dev' },
-        { label: 'Paid Media & PPC', href: '/services/paid-media' },
+        { label: 'SEO Services', href: '/services/seo-organic-growth' },
+        { label: 'Website Development', href: '/services/web-design-dev' },
+        { label: 'Google Ads & PPC', href: '/services/paid-media' },
         { label: 'Analytics & CRO', href: '/services/analytics-cro' },
       ],
       social: [
@@ -257,4 +256,17 @@ export const siteData = {
       ],
     },
   },
+
+  slogans: [
+    'Grow with data. Not guesswork.',
+    'Your growth, engineered.',
+    'Marketing that pays for itself.',
+    'Real strategy. Real growth.',
+    'Where marketing meets results.',
+    'Built to grow your business online.',
+    'Clarity. Strategy. Growth.',
+    'Digital marketing that moves the needle.',
+    'Less noise. More leads.',
+    'Growth, delivered on a plan.',
+  ],
 };

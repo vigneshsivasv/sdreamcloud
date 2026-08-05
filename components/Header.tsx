@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Services', href: '/#services' },
   { label: 'Process', href: '/#process' },
   { label: 'FAQ', href: '/#faq' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
@@ -40,22 +41,11 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className="nav-link"
-              data-cursor="view"
-              data-cursor-label={link.label}
               data-magnetic="8"
             >
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/#cta"
-            className="btn-primary btn-nav-cta"
-            data-cursor="cta"
-            data-cursor-label="Sign up"
-            data-magnetic="10"
-          >
-            Sign up free
-          </Link>
         </nav>
 
         <button
@@ -79,9 +69,6 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/#cta" onClick={closeMenu} className="btn-primary mobile-nav-cta">
-            Sign up free
-          </Link>
         </nav>
       )}
     </header>

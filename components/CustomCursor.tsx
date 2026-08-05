@@ -6,7 +6,7 @@ type CursorMode = 'default' | 'view' | 'cta' | 'discover' | 'drag';
 
 const MODE_LABELS: Record<Exclude<CursorMode, 'default'>, string> = {
   view: 'View',
-  cta: 'Sign up',
+  cta: 'Contact',
   discover: 'Explore',
   drag: 'Drag',
 };
@@ -65,25 +65,41 @@ export default function CustomCursor() {
       rafRef.current = requestAnimationFrame(animate);
     };
 
+    const isNativeZone = (node: EventTarget | null) => {
+      if (!(node instanceof Element)) return false;
+      return Boolean(node.closest('.site-header, #faq, [data-native-cursor]'));
+    };
+
+    const resolveTarget = (node: EventTarget | null) => {
+      if (!(node instanceof Element) || isNativeZone(node)) return null;
+      return node.closest<HTMLElement>('[data-cursor]');
+    };
+
     const onMove = (event: PointerEvent) => {
       body.classList.add('has-cursor');
       target.current.x = event.clientX;
       target.current.y = event.clientY;
+
+      if (isNativeZone(event.target)) {
+        body.classList.add('is-native-cursor');
+        clearModes();
+      } else {
+        body.classList.remove('is-native-cursor');
+      }
     };
 
     const onDown = () => body.classList.add('is-cursor-down');
     const onUp = () => body.classList.remove('is-cursor-down');
     const onLeave = () => {
-      body.classList.remove('has-cursor', 'is-cursor-down');
+      body.classList.remove('has-cursor', 'is-cursor-down', 'is-native-cursor');
       clearModes();
     };
 
-    const resolveTarget = (node: EventTarget | null) => {
-      if (!(node instanceof Element)) return null;
-      return node.closest<HTMLElement>('[data-cursor]');
-    };
-
     const onOver = (event: PointerEvent) => {
+      if (isNativeZone(event.target)) {
+        clearModes();
+        return;
+      }
       const el = resolveTarget(event.target);
       if (!el) return;
       const mode = (el.dataset.cursor || 'view') as CursorMode;
@@ -121,6 +137,7 @@ export default function CustomCursor() {
         'has-custom-cursor',
         'has-cursor',
         'is-cursor-down',
+        'is-native-cursor',
         'is-cursor-view',
         'is-cursor-cta',
         'is-cursor-discover',

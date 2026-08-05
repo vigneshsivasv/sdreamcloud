@@ -12,7 +12,7 @@ type LeadFormProps = {
 
 export default function LeadForm({
   source = 'website',
-  buttonText = 'Get free audit',
+  buttonText = 'Get audit',
   placeholder = 'Enter your work email',
   className = '',
   compact = false,
@@ -100,7 +100,7 @@ export default function LeadForm({
           disabled={loading}
           aria-busy={loading}
           data-cursor="cta"
-          data-cursor-label="Sign up"
+          data-cursor-label="Contact"
           data-magnetic="12"
         >
           {loading ? 'Sending…' : buttonText}

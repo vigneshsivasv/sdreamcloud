@@ -6,6 +6,7 @@ import PageShell from '@/components/PageShell';
 import HeroSection from '@/components/HeroSection';
 import LogoBar from '@/components/LogoBar';
 import ServicesSection from '@/components/ServicesSection';
+import LuminaSlider from '@/components/LuminaSlider';
 import ProcessSection from '@/components/ProcessSection';
 import BenefitsSection from '@/components/BenefitsSection';
 import FaqSection from '@/components/FaqSection';
@@ -37,6 +38,7 @@ export default function HomePage() {
       <HeroSection />
       <LogoBar />
       <ServicesSection />
+      <LuminaSlider />
       <ProcessSection />
       <BenefitsSection />
       {/* Blog hidden until single pages are ready */}

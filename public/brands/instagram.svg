@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="ig" x1="8" y1="42" x2="40" y2="6" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F58529"/>
+      <stop offset=".35" stop-color="#DD2A7B"/>
+      <stop offset=".7" stop-color="#8134AF"/>
+      <stop offset="1" stop-color="#515BD4"/>
+    </linearGradient>
+  </defs>
+  <rect x="5" y="5" width="38" height="38" rx="10" fill="url(#ig)"/>
+  <circle cx="24" cy="24" r="8.5" stroke="#fff" stroke-width="3" fill="none"/>
+  <circle cx="34.5" cy="13.5" r="2.2" fill="#fff"/>
+</svg>

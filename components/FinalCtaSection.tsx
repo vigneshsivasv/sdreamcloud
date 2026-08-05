@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import { siteData } from '@/lib/data';
-import LeadForm from '@/components/LeadForm';
 
 const { cta } = siteData;
 
@@ -17,13 +17,16 @@ export default function FinalCtaSection() {
           <p className="text-secondary" style={{ marginTop: '1rem', maxWidth: '28rem', lineHeight: 1.7 }}>
             {cta.description}
           </p>
-          <div data-cursor="cta" data-cursor-label="Join">
-            <LeadForm
-              source="final-cta"
-              compact
-              placeholder={cta.placeholder}
-              buttonText={cta.btnText}
-            />
+          <div style={{ marginTop: '1.5rem' }}>
+            <Link
+              href="/contact"
+              className="btn-primary"
+              data-cursor="cta"
+              data-cursor-label="Contact"
+              data-magnetic="10"
+            >
+              {cta.btnText}
+            </Link>
           </div>
         </div>
       </div>

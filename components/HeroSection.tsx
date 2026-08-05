@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { siteData } from '@/lib/data';
-import LeadForm from '@/components/LeadForm';
 
 const { hero } = siteData;
 
@@ -99,28 +99,37 @@ export default function HeroSection() {
 
         <h1 className="hero-lux__title">
           <span className="hero-lux__line hero-lux__anim" style={{ ['--d' as string]: '80ms' }}>
-            Sdreamclouds
+            {hero.titleMain}
           </span>
           <span
             className="hero-lux__line hero-lux__line--sub hero-lux__anim"
             style={{ ['--d' as string]: '160ms' }}
           >
-            {hero.titleMain.replace(/\.$/, '')}
+            {hero.titleSub}
             <span className="landing-red-dot" aria-hidden="true" />
           </span>
         </h1>
+
+        {hero.tagline ? (
+          <p className="hero-lux__tagline hero-lux__anim" style={{ ['--d' as string]: '200ms' }}>
+            {hero.tagline}
+          </p>
+        ) : null}
 
         <p className="hero-lux__desc hero-lux__anim" style={{ ['--d' as string]: '240ms' }}>
           {hero.description}
         </p>
 
-        <div className="landing-form hero-lux__anim" style={{ ['--d' as string]: '320ms' }} data-magnetic="8">
-          <LeadForm
-            source="hero"
-            compact
-            placeholder={hero.placeholder}
-            buttonText={hero.btnText}
-          />
+        <div className="hero-lux__actions hero-lux__anim" style={{ ['--d' as string]: '320ms' }}>
+          <Link
+            href="/contact"
+            className="btn-primary"
+            data-magnetic="10"
+            data-cursor="cta"
+            data-cursor-label="Contact"
+          >
+            {hero.btnText}
+          </Link>
         </div>
         <p className="hero-lux__proof hero-lux__anim" style={{ ['--d' as string]: '400ms' }}>
           {hero.proof}
@@ -154,7 +163,7 @@ export default function HeroSection() {
       </button>
 
       <p className="hero-lux__corner hero-lux__anim" style={{ ['--d' as string]: '520ms' }} aria-hidden="true">
-        Growth Agency
+        Digital Marketing
       </p>
     </section>
   );

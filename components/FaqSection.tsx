@@ -29,9 +29,6 @@ export default function FaqSection() {
                 key={item.question}
                 className="faq-item"
                 data-reveal
-                data-magnetic="8"
-                data-cursor="discover"
-                data-cursor-label="FAQ"
               >
                 <dt>
                   <button

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { createMetadata, siteConfig, breadcrumbSchema } from '@/lib/seo';
 import PageShell from '@/components/PageShell';
 import ContactSection from '@/components/ContactSection';
@@ -32,7 +33,9 @@ export default function ContactPage() {
           { name: 'Contact', url: `${siteConfig.url}/contact` },
         ])}
       />
-      <ContactSection asPage />
+      <Suspense fallback={null}>
+        <ContactSection asPage />
+      </Suspense>
     </PageShell>
   );
 }

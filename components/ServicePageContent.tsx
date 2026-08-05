@@ -3,13 +3,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ServicePage } from '@/lib/services';
-import LeadForm from '@/components/LeadForm';
+import { getContactHref } from '@/lib/services';
 
 type ServicePageContentProps = {
   service: ServicePage;
 };
 
 export default function ServicePageContent({ service }: ServicePageContentProps) {
+  const contactHref = getContactHref(service.slug);
+
   return (
     <>
       <section className="service-page-hero">
@@ -33,8 +35,13 @@ export default function ServicePageContent({ service }: ServicePageContentProps)
             {service.description}
           </p>
           <div data-reveal data-magnetic="10">
-            <Link href="/#cta" className="btn-primary" data-cursor="cta" data-cursor-label="Audit">
-              Get free growth audit
+            <Link
+              href={contactHref}
+              className="btn-primary"
+              data-cursor="cta"
+              data-cursor-label="Contact"
+            >
+              {service.ctaText}
             </Link>
           </div>
         </div>
@@ -80,7 +87,15 @@ export default function ServicePageContent({ service }: ServicePageContentProps)
             <p className="text-secondary" style={{ margin: '1rem 0 1.5rem', maxWidth: '32rem', lineHeight: 1.7 }}>
               Tell us your goals — we&apos;ll reply with a clear plan for {service.title.toLowerCase()}.
             </p>
-            <LeadForm source={`service-${service.slug}`} compact buttonText="Start free audit" />
+            <Link
+              href={contactHref}
+              className="btn-primary"
+              data-cursor="cta"
+              data-cursor-label="Contact"
+              data-magnetic="10"
+            >
+              {service.ctaText}
+            </Link>
           </div>
         </div>
       </section>
